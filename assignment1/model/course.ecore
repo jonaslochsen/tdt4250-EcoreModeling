@@ -6,6 +6,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="faculties" upperBound="-1"
         eType="#//Faculty" containment="true" eOpposite="#//Faculty/university"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="people" lowerBound="1"
+        upperBound="-1" eType="#//Person" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Faculty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,8 +27,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredPreCond" upperBound="-1"
         eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recommendedPreCond" upperBound="-1"
-        eType="#//Course"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
         eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="studyPrograms" upperBound="-1"
         eType="#//StudyProgram"/>

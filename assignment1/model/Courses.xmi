@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course:University
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:course="platform:/plugin/assignment1/model/course.ecore"
+    xsi:schemaLocation="platform:/plugin/assignment1/model/course.ecore course.ecore">
+  <faculties
+      name="of Information Technology and Electrical Engineering"
+      shortName="IE">
+    <departments
+        name="of Computer Science"
+        shortName="IDI">
+      <courses
+          code="TDT4250"
+          name="Advanced Software Design"
+          content="Generic techniques for modeling, design and implementation of modular software, focussing on industrial techniques and domains."
+          credits="7.5"
+          recommendedPreCond="//@faculties.0/@departments.0/@courses.1 //@faculties.0/@departments.0/@courses.2 //@faculties.0/@departments.0/@courses.3 //@faculties.0/@departments.0/@courses.4"
+          studyPrograms="//@faculties.0/@departments.0/@studyPrograms.0">
+        <courseInstances>
+          <organisation>
+            <employees
+                employee="//@people.0">
+              <employment>CourseCoordinator</employment>
+              <employment>Lecturer</employment>
+            </employees>
+            <employees
+                employee="//@people.1">
+              <employment>TA</employment>
+            </employees>
+          </organisation>
+          <evaluation
+              exam="70"
+              assigments="30"/>
+          <courseWork
+              lectureHours="3"
+              labHours="2"/>
+          <timeTable>
+            <timetableEntry
+                day="Wednesday"
+                room="VE22"
+                time="08:15-10:00"
+                studyProgram="//@faculties.0/@departments.0/@studyPrograms.0"/>
+            <timetableEntry
+                day="Wednesday"
+                room="S4"
+                time="12:15-14:00"
+                studyProgram="//@faculties.0/@departments.0/@studyPrograms.0"
+                type="Lecture"/>
+            <timetableEntry
+                day="Thursday"
+                room="EL1"
+                time="12:00-13:15"
+                studyProgram="//@faculties.0/@departments.0/@studyPrograms.0"
+                type="Lecture"/>
+          </timeTable>
+        </courseInstances>
+      </courses>
+      <courses
+          code="TDT4100"
+          name="Object-oriented programming"
+          credits="7.5"/>
+      <courses
+          code="TDT4140"
+          name="Software Engineering"
+          content=""
+          credits="7.5"/>
+      <courses
+          code="TDT4175"
+          name="Information Systems"
+          credits="7.5"/>
+      <courses
+          code="TDT4240"
+          name="Software Architecture"
+          credits="7.5"/>
+      <studyPrograms
+          code="MTDT"/>
+    </departments>
+  </faculties>
+  <faculties
+      name="of Engineering"
+      shortName="IV">
+    <departments
+        name="of Geoscience and Petroleum"
+        shortName="IGP">
+      <studyPrograms
+          code="MTPETR"/>
+    </departments>
+  </faculties>
+  <people name="Hallvard Trætteberg"
+      employment="//@faculties.0/@departments.0/@courses.0/@courseInstances.0/@organisation/@employees.0"/>
+  <people name="Bendik Tiltnes"
+      employment="//@faculties.0/@departments.0/@courses.0/@courseInstances.0/@organisation/@employees.1"/>
+</course:University>
