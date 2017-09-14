@@ -3,9 +3,8 @@
 package course.provider;
 
 
-import course.CourseFactory;
 import course.CoursePackage;
-import course.Organisation;
+import course.Employment;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,24 +14,24 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link course.Organisation} object.
+ * This is the item provider adapter for a {@link course.Employment} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OrganisationItemProvider 
+public class EmploymentItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +45,7 @@ public class OrganisationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrganisationItemProvider(AdapterFactory adapterFactory) {
+	public EmploymentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,49 +60,65 @@ public class OrganisationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addEmploymentPropertyDescriptor(object);
+			addEmployeePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Employment feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CoursePackage.Literals.ORGANISATION__EMPLOYEES);
-		}
-		return childrenFeatures;
+	protected void addEmploymentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Employment_employment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Employment_employment_feature", "_UI_Employment_type"),
+				 CoursePackage.Literals.EMPLOYMENT__EMPLOYMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Employee feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addEmployeePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Employment_employee_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Employment_employee_feature", "_UI_Employment_type"),
+				 CoursePackage.Literals.EMPLOYMENT__EMPLOYEE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns Organisation.gif.
+	 * This returns Employment.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Organisation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Employment"));
 	}
 
 	/**
@@ -114,7 +129,7 @@ public class OrganisationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Organisation_type");
+		return getString("_UI_Employment_type");
 	}
 	
 
@@ -129,9 +144,9 @@ public class OrganisationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Organisation.class)) {
-			case CoursePackage.ORGANISATION__EMPLOYEES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(Employment.class)) {
+			case CoursePackage.EMPLOYMENT__EMPLOYMENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -147,11 +162,6 @@ public class OrganisationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CoursePackage.Literals.ORGANISATION__EMPLOYEES,
-				 CourseFactory.eINSTANCE.createEmployment()));
 	}
 
 	/**

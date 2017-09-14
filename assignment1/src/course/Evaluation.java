@@ -2,8 +2,6 @@
  */
 package course;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Evaluation#getProject <em>Project</em>}</li>
  *   <li>{@link course.Evaluation#getAssigments <em>Assigments</em>}</li>
  *   <li>{@link course.Evaluation#getCourseInstance <em>Course Instance</em>}</li>
- *   <li>{@link course.Evaluation#getRegisteredStudents <em>Registered Students</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getEvaluation()
@@ -132,23 +129,5 @@ public interface Evaluation extends EObject {
 	 * @generated
 	 */
 	void setCourseInstance(CourseInstance value);
-
-	/**
-	 * Returns the value of the '<em><b>Registered Students</b></em>' reference list.
-	 * The list contents are of type {@link course.Student}.
-	 * It is bidirectional and its opposite is '{@link course.Student#getEvaluation <em>Evaluation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Registered Students</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Registered Students</em>' reference list.
-	 * @see course.CoursePackage#getEvaluation_RegisteredStudents()
-	 * @see course.Student#getEvaluation
-	 * @model opposite="evaluation"
-	 * @generated
-	 */
-	EList<Student> getRegisteredStudents();
 
 } // Evaluation

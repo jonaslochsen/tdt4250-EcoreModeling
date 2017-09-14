@@ -348,95 +348,49 @@ public class CourseItemProviderAdapterFactory extends CourseAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link course.Student} instances.
+	 * This keeps track of the one adapter used for all {@link course.Employment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StudentItemProvider studentItemProvider;
+	protected EmploymentItemProvider employmentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link course.Student}.
+	 * This creates an adapter for a {@link course.Employment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStudentAdapter() {
-		if (studentItemProvider == null) {
-			studentItemProvider = new StudentItemProvider(this);
+	public Adapter createEmploymentAdapter() {
+		if (employmentItemProvider == null) {
+			employmentItemProvider = new EmploymentItemProvider(this);
 		}
 
-		return studentItemProvider;
+		return employmentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link course.CourseCoordinator} instances.
+	 * This keeps track of the one adapter used for all {@link course.Studies} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CourseCoordinatorItemProvider courseCoordinatorItemProvider;
+	protected StudiesItemProvider studiesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link course.CourseCoordinator}.
+	 * This creates an adapter for a {@link course.Studies}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCourseCoordinatorAdapter() {
-		if (courseCoordinatorItemProvider == null) {
-			courseCoordinatorItemProvider = new CourseCoordinatorItemProvider(this);
+	public Adapter createStudiesAdapter() {
+		if (studiesItemProvider == null) {
+			studiesItemProvider = new StudiesItemProvider(this);
 		}
 
-		return courseCoordinatorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link course.Lecturer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LecturerItemProvider lecturerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link course.Lecturer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLecturerAdapter() {
-		if (lecturerItemProvider == null) {
-			lecturerItemProvider = new LecturerItemProvider(this);
-		}
-
-		return lecturerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link course.TA} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TAItemProvider taItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link course.TA}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTAAdapter() {
-		if (taItemProvider == null) {
-			taItemProvider = new TAItemProvider(this);
-		}
-
-		return taItemProvider;
+		return studiesItemProvider;
 	}
 
 	/**
@@ -550,10 +504,8 @@ public class CourseItemProviderAdapterFactory extends CourseAdapterFactory imple
 		if (courseWorkItemProvider != null) courseWorkItemProvider.dispose();
 		if (timetableItemProvider != null) timetableItemProvider.dispose();
 		if (timetableEntryItemProvider != null) timetableEntryItemProvider.dispose();
-		if (studentItemProvider != null) studentItemProvider.dispose();
-		if (courseCoordinatorItemProvider != null) courseCoordinatorItemProvider.dispose();
-		if (lecturerItemProvider != null) lecturerItemProvider.dispose();
-		if (taItemProvider != null) taItemProvider.dispose();
+		if (employmentItemProvider != null) employmentItemProvider.dispose();
+		if (studiesItemProvider != null) studiesItemProvider.dispose();
 	}
 
 }

@@ -26,6 +26,8 @@
         eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recommendedPreCond" upperBound="-1"
         eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
+        eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="studyPrograms" upperBound="-1"
         eType="#//StudyProgram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courseInstances" upperBound="-1"
@@ -62,6 +64,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="employment" lowerBound="1"
         upperBound="-1" eType="#//Employment" eOpposite="#//Employment/employee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="studies" eType="#//Studies"
+        containment="true" eOpposite="#//Studies/student"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exam" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -113,18 +117,27 @@
     <eLiterals name="Lab" value="1" literal="Lab"/>
     <eLiterals name="Lecture" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="typeOfEmployment">
-    <eLiterals name="Student" literal="Student"/>
-    <eLiterals name="TA" value="1"/>
-    <eLiterals name="Lecturer" value="2"/>
-    <eLiterals name="CourseCoordinator" value="3"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeOfEmployment">
+    <eLiterals name="Student" value="1" literal="Student"/>
+    <eLiterals name="TA" value="2"/>
+    <eLiterals name="Lecturer" value="3"/>
+    <eLiterals name="CourseCoordinator" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Employment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="employment" lowerBound="1"
-        upperBound="-1" eType="#//typeOfEmployment"/>
+        upperBound="-1" eType="#//TypeOfEmployment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="employee" lowerBound="1"
         eType="#//Person" eOpposite="#//Person/employment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="organisation" lowerBound="1"
         eType="#//Organisation" eOpposite="#//Organisation/employees"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Studies">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pastCourses" upperBound="-1"
+        eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="student" lowerBound="1"
+        eType="#//Person" eOpposite="#//Person/studies"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentCourses" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList" volatile="true"
+        transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

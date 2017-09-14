@@ -31,6 +31,7 @@ public class CourseAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new CourseAllTests("Course Tests");
+		suite.addTest(CourseTests.suite());
 		return suite;
 	}
 

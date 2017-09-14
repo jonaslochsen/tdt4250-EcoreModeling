@@ -69,10 +69,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.COURSE_WORK: return createCourseWork();
 			case CoursePackage.TIMETABLE: return createTimetable();
 			case CoursePackage.TIMETABLE_ENTRY: return createTimetableEntry();
-			case CoursePackage.STUDENT: return createStudent();
-			case CoursePackage.COURSE_COORDINATOR: return createCourseCoordinator();
-			case CoursePackage.LECTURER: return createLecturer();
-			case CoursePackage.TA: return createTA();
+			case CoursePackage.EMPLOYMENT: return createEmployment();
+			case CoursePackage.STUDIES: return createStudies();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -90,6 +88,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return createDayOfWeekFromString(eDataType, initialValue);
 			case CoursePackage.TYPE_OF_INSTRUCTION:
 				return createTypeOfInstructionFromString(eDataType, initialValue);
+			case CoursePackage.TYPE_OF_EMPLOYMENT:
+				return createTypeOfEmploymentFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +107,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return convertDayOfWeekToString(eDataType, instanceValue);
 			case CoursePackage.TYPE_OF_INSTRUCTION:
 				return convertTypeOfInstructionToString(eDataType, instanceValue);
+			case CoursePackage.TYPE_OF_EMPLOYMENT:
+				return convertTypeOfEmploymentToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -237,9 +239,9 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Student createStudent() {
-		StudentImpl student = new StudentImpl();
-		return student;
+	public Employment createEmployment() {
+		EmploymentImpl employment = new EmploymentImpl();
+		return employment;
 	}
 
 	/**
@@ -247,29 +249,9 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CourseCoordinator createCourseCoordinator() {
-		CourseCoordinatorImpl courseCoordinator = new CourseCoordinatorImpl();
-		return courseCoordinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Lecturer createLecturer() {
-		LecturerImpl lecturer = new LecturerImpl();
-		return lecturer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TA createTA() {
-		TAImpl ta = new TAImpl();
-		return ta;
+	public Studies createStudies() {
+		StudiesImpl studies = new StudiesImpl();
+		return studies;
 	}
 
 	/**
@@ -309,6 +291,26 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	public String convertTypeOfInstructionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeOfEmployment createTypeOfEmploymentFromString(EDataType eDataType, String initialValue) {
+		TypeOfEmployment result = TypeOfEmployment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTypeOfEmploymentToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -2,12 +2,10 @@
  */
 package course.impl;
 
-import course.CourseCoordinator;
 import course.CourseInstance;
 import course.CoursePackage;
-import course.Lecturer;
+import course.Employment;
 import course.Organisation;
-import course.TA;
 
 import java.util.Collection;
 
@@ -34,44 +32,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link course.impl.OrganisationImpl#getCourseCoordinator <em>Course Coordinator</em>}</li>
- *   <li>{@link course.impl.OrganisationImpl#getLecturer <em>Lecturer</em>}</li>
- *   <li>{@link course.impl.OrganisationImpl#getTa <em>Ta</em>}</li>
  *   <li>{@link course.impl.OrganisationImpl#getCourseInstance <em>Course Instance</em>}</li>
+ *   <li>{@link course.impl.OrganisationImpl#getEmployees <em>Employees</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class OrganisationImpl extends MinimalEObjectImpl.Container implements Organisation {
 	/**
-	 * The cached value of the '{@link #getCourseCoordinator() <em>Course Coordinator</em>}' containment reference.
+	 * The cached value of the '{@link #getEmployees() <em>Employees</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCourseCoordinator()
+	 * @see #getEmployees()
 	 * @generated
 	 * @ordered
 	 */
-	protected CourseCoordinator courseCoordinator;
-
-	/**
-	 * The cached value of the '{@link #getLecturer() <em>Lecturer</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLecturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Lecturer> lecturer;
-
-	/**
-	 * The cached value of the '{@link #getTa() <em>Ta</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTa()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TA> ta;
+	protected EList<Employment> employees;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,73 +66,6 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	@Override
 	protected EClass eStaticClass() {
 		return CoursePackage.Literals.ORGANISATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CourseCoordinator getCourseCoordinator() {
-		return courseCoordinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCourseCoordinator(CourseCoordinator newCourseCoordinator, NotificationChain msgs) {
-		CourseCoordinator oldCourseCoordinator = courseCoordinator;
-		courseCoordinator = newCourseCoordinator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoursePackage.ORGANISATION__COURSE_COORDINATOR, oldCourseCoordinator, newCourseCoordinator);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCourseCoordinator(CourseCoordinator newCourseCoordinator) {
-		if (newCourseCoordinator != courseCoordinator) {
-			NotificationChain msgs = null;
-			if (courseCoordinator != null)
-				msgs = ((InternalEObject)courseCoordinator).eInverseRemove(this, CoursePackage.COURSE_COORDINATOR__ORGANISATION, CourseCoordinator.class, msgs);
-			if (newCourseCoordinator != null)
-				msgs = ((InternalEObject)newCourseCoordinator).eInverseAdd(this, CoursePackage.COURSE_COORDINATOR__ORGANISATION, CourseCoordinator.class, msgs);
-			msgs = basicSetCourseCoordinator(newCourseCoordinator, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.ORGANISATION__COURSE_COORDINATOR, newCourseCoordinator, newCourseCoordinator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Lecturer> getLecturer() {
-		if (lecturer == null) {
-			lecturer = new EObjectContainmentWithInverseEList<Lecturer>(Lecturer.class, this, CoursePackage.ORGANISATION__LECTURER, CoursePackage.LECTURER__ORGANISATION);
-		}
-		return lecturer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TA> getTa() {
-		if (ta == null) {
-			ta = new EObjectContainmentWithInverseEList<TA>(TA.class, this, CoursePackage.ORGANISATION__TA, CoursePackage.TA__ORGANISATION);
-		}
-		return ta;
 	}
 
 	/**
@@ -205,22 +114,28 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Employment> getEmployees() {
+		if (employees == null) {
+			employees = new EObjectContainmentWithInverseEList<Employment>(Employment.class, this, CoursePackage.ORGANISATION__EMPLOYEES, CoursePackage.EMPLOYMENT__ORGANISATION);
+		}
+		return employees;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CoursePackage.ORGANISATION__COURSE_COORDINATOR:
-				if (courseCoordinator != null)
-					msgs = ((InternalEObject)courseCoordinator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoursePackage.ORGANISATION__COURSE_COORDINATOR, null, msgs);
-				return basicSetCourseCoordinator((CourseCoordinator)otherEnd, msgs);
-			case CoursePackage.ORGANISATION__LECTURER:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLecturer()).basicAdd(otherEnd, msgs);
-			case CoursePackage.ORGANISATION__TA:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTa()).basicAdd(otherEnd, msgs);
 			case CoursePackage.ORGANISATION__COURSE_INSTANCE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetCourseInstance((CourseInstance)otherEnd, msgs);
+			case CoursePackage.ORGANISATION__EMPLOYEES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEmployees()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -233,14 +148,10 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CoursePackage.ORGANISATION__COURSE_COORDINATOR:
-				return basicSetCourseCoordinator(null, msgs);
-			case CoursePackage.ORGANISATION__LECTURER:
-				return ((InternalEList<?>)getLecturer()).basicRemove(otherEnd, msgs);
-			case CoursePackage.ORGANISATION__TA:
-				return ((InternalEList<?>)getTa()).basicRemove(otherEnd, msgs);
 			case CoursePackage.ORGANISATION__COURSE_INSTANCE:
 				return basicSetCourseInstance(null, msgs);
+			case CoursePackage.ORGANISATION__EMPLOYEES:
+				return ((InternalEList<?>)getEmployees()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -267,14 +178,10 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CoursePackage.ORGANISATION__COURSE_COORDINATOR:
-				return getCourseCoordinator();
-			case CoursePackage.ORGANISATION__LECTURER:
-				return getLecturer();
-			case CoursePackage.ORGANISATION__TA:
-				return getTa();
 			case CoursePackage.ORGANISATION__COURSE_INSTANCE:
 				return getCourseInstance();
+			case CoursePackage.ORGANISATION__EMPLOYEES:
+				return getEmployees();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,19 +195,12 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CoursePackage.ORGANISATION__COURSE_COORDINATOR:
-				setCourseCoordinator((CourseCoordinator)newValue);
-				return;
-			case CoursePackage.ORGANISATION__LECTURER:
-				getLecturer().clear();
-				getLecturer().addAll((Collection<? extends Lecturer>)newValue);
-				return;
-			case CoursePackage.ORGANISATION__TA:
-				getTa().clear();
-				getTa().addAll((Collection<? extends TA>)newValue);
-				return;
 			case CoursePackage.ORGANISATION__COURSE_INSTANCE:
 				setCourseInstance((CourseInstance)newValue);
+				return;
+			case CoursePackage.ORGANISATION__EMPLOYEES:
+				getEmployees().clear();
+				getEmployees().addAll((Collection<? extends Employment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -314,17 +214,11 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CoursePackage.ORGANISATION__COURSE_COORDINATOR:
-				setCourseCoordinator((CourseCoordinator)null);
-				return;
-			case CoursePackage.ORGANISATION__LECTURER:
-				getLecturer().clear();
-				return;
-			case CoursePackage.ORGANISATION__TA:
-				getTa().clear();
-				return;
 			case CoursePackage.ORGANISATION__COURSE_INSTANCE:
 				setCourseInstance((CourseInstance)null);
+				return;
+			case CoursePackage.ORGANISATION__EMPLOYEES:
+				getEmployees().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -338,14 +232,10 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CoursePackage.ORGANISATION__COURSE_COORDINATOR:
-				return courseCoordinator != null;
-			case CoursePackage.ORGANISATION__LECTURER:
-				return lecturer != null && !lecturer.isEmpty();
-			case CoursePackage.ORGANISATION__TA:
-				return ta != null && !ta.isEmpty();
 			case CoursePackage.ORGANISATION__COURSE_INSTANCE:
 				return getCourseInstance() != null;
+			case CoursePackage.ORGANISATION__EMPLOYEES:
+				return employees != null && !employees.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

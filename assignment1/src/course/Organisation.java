@@ -15,10 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link course.Organisation#getCourseCoordinator <em>Course Coordinator</em>}</li>
- *   <li>{@link course.Organisation#getLecturer <em>Lecturer</em>}</li>
- *   <li>{@link course.Organisation#getTa <em>Ta</em>}</li>
  *   <li>{@link course.Organisation#getCourseInstance <em>Course Instance</em>}</li>
+ *   <li>{@link course.Organisation#getEmployees <em>Employees</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getOrganisation()
@@ -26,70 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Organisation extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Course Coordinator</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link course.CourseCoordinator#getOrganisation <em>Organisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Course Coordinator</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Course Coordinator</em>' containment reference.
-	 * @see #setCourseCoordinator(CourseCoordinator)
-	 * @see course.CoursePackage#getOrganisation_CourseCoordinator()
-	 * @see course.CourseCoordinator#getOrganisation
-	 * @model opposite="organisation" containment="true" required="true"
-	 * @generated
-	 */
-	CourseCoordinator getCourseCoordinator();
-
-	/**
-	 * Sets the value of the '{@link course.Organisation#getCourseCoordinator <em>Course Coordinator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Course Coordinator</em>' containment reference.
-	 * @see #getCourseCoordinator()
-	 * @generated
-	 */
-	void setCourseCoordinator(CourseCoordinator value);
-
-	/**
-	 * Returns the value of the '<em><b>Lecturer</b></em>' containment reference list.
-	 * The list contents are of type {@link course.Lecturer}.
-	 * It is bidirectional and its opposite is '{@link course.Lecturer#getOrganisation <em>Organisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Lecturer</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lecturer</em>' containment reference list.
-	 * @see course.CoursePackage#getOrganisation_Lecturer()
-	 * @see course.Lecturer#getOrganisation
-	 * @model opposite="organisation" containment="true" required="true"
-	 * @generated
-	 */
-	EList<Lecturer> getLecturer();
-
-	/**
-	 * Returns the value of the '<em><b>Ta</b></em>' containment reference list.
-	 * The list contents are of type {@link course.TA}.
-	 * It is bidirectional and its opposite is '{@link course.TA#getOrganisation <em>Organisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ta</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ta</em>' containment reference list.
-	 * @see course.CoursePackage#getOrganisation_Ta()
-	 * @see course.TA#getOrganisation
-	 * @model opposite="organisation" containment="true"
-	 * @generated
-	 */
-	EList<TA> getTa();
-
 	/**
 	 * Returns the value of the '<em><b>Course Instance</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link course.CourseInstance#getOrganisation <em>Organisation</em>}'.
@@ -117,5 +51,23 @@ public interface Organisation extends EObject {
 	 * @generated
 	 */
 	void setCourseInstance(CourseInstance value);
+
+	/**
+	 * Returns the value of the '<em><b>Employees</b></em>' containment reference list.
+	 * The list contents are of type {@link course.Employment}.
+	 * It is bidirectional and its opposite is '{@link course.Employment#getOrganisation <em>Organisation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Employees</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Employees</em>' containment reference list.
+	 * @see course.CoursePackage#getOrganisation_Employees()
+	 * @see course.Employment#getOrganisation
+	 * @model opposite="organisation" containment="true"
+	 * @generated
+	 */
+	EList<Employment> getEmployees();
 
 } // Organisation

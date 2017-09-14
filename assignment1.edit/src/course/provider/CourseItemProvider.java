@@ -69,6 +69,7 @@ public class CourseItemProvider
 			addCreditsPropertyDescriptor(object);
 			addRequiredPreCondPropertyDescriptor(object);
 			addRecommendedPreCondPropertyDescriptor(object);
+			addDependencyPropertyDescriptor(object);
 			addStudyProgramsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -198,6 +199,28 @@ public class CourseItemProvider
 				 getString("_UI_Course_recommendedPreCond_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Course_recommendedPreCond_feature", "_UI_Course_type"),
 				 CoursePackage.Literals.COURSE__RECOMMENDED_PRE_COND,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependency feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Course_dependency_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Course_dependency_feature", "_UI_Course_type"),
+				 CoursePackage.Literals.COURSE__DEPENDENCY,
 				 true,
 				 false,
 				 true,

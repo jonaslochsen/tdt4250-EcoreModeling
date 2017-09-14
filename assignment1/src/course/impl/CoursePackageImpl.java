@@ -3,22 +3,22 @@
 package course.impl;
 
 import course.Course;
-import course.CourseCoordinator;
 import course.CourseFactory;
 import course.CourseInstance;
 import course.CoursePackage;
 import course.CourseWork;
 import course.DayOfWeek;
 import course.Department;
+import course.Employment;
 import course.Evaluation;
 import course.Faculty;
-import course.Lecturer;
 import course.Organisation;
 import course.Person;
-import course.Student;
+import course.Studies;
 import course.StudyProgram;
 import course.Timetable;
 import course.TimetableEntry;
+import course.TypeOfEmployment;
 import course.TypeOfInstruction;
 import course.University;
 
@@ -129,28 +129,14 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass studentEClass = null;
+	private EClass employmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass courseCoordinatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass lecturerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass taEClass = null;
+	private EClass studiesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,6 +151,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	private EEnum typeOfInstructionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeOfEmploymentEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -376,7 +369,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourse_StudyPrograms() {
+	public EReference getCourse_Dependency() {
 		return (EReference)courseEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -385,7 +378,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourse_CourseInstances() {
+	public EReference getCourse_StudyPrograms() {
 		return (EReference)courseEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -394,8 +387,17 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourse_Department() {
+	public EReference getCourse_CourseInstances() {
 		return (EReference)courseEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCourse_Department() {
+		return (EReference)courseEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -529,6 +531,24 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPerson_Employment() {
+		return (EReference)personEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPerson_Studies() {
+		return (EReference)personEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEvaluation() {
 		return evaluationEClass;
 	}
@@ -574,15 +594,6 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvaluation_RegisteredStudents() {
-		return (EReference)evaluationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getOrganisation() {
 		return organisationEClass;
 	}
@@ -592,7 +603,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOrganisation_CourseCoordinator() {
+	public EReference getOrganisation_CourseInstance() {
 		return (EReference)organisationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -601,26 +612,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOrganisation_Lecturer() {
+	public EReference getOrganisation_Employees() {
 		return (EReference)organisationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOrganisation_Ta() {
-		return (EReference)organisationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOrganisation_CourseInstance() {
-		return (EReference)organisationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -639,15 +632,6 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 */
 	public EAttribute getStudyProgram_Code() {
 		return (EAttribute)studyProgramEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStudyProgram_Students() {
-		return (EReference)studyProgramEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -772,8 +756,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStudent() {
-		return studentEClass;
+	public EClass getEmployment() {
+		return employmentEClass;
 	}
 
 	/**
@@ -781,8 +765,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudent_StudyProgram() {
-		return (EReference)studentEClass.getEStructuralFeatures().get(0);
+	public EAttribute getEmployment_Employment() {
+		return (EAttribute)employmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -790,8 +774,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudent_Evaluation() {
-		return (EReference)studentEClass.getEStructuralFeatures().get(1);
+	public EReference getEmployment_Employee() {
+		return (EReference)employmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -799,8 +783,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCourseCoordinator() {
-		return courseCoordinatorEClass;
+	public EReference getEmployment_Organisation() {
+		return (EReference)employmentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -808,8 +792,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourseCoordinator_Organisation() {
-		return (EReference)courseCoordinatorEClass.getEStructuralFeatures().get(0);
+	public EClass getStudies() {
+		return studiesEClass;
 	}
 
 	/**
@@ -817,8 +801,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLecturer() {
-		return lecturerEClass;
+	public EReference getStudies_PastCourses() {
+		return (EReference)studiesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -826,8 +810,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLecturer_Organisation() {
-		return (EReference)lecturerEClass.getEStructuralFeatures().get(0);
+	public EReference getStudies_Student() {
+		return (EReference)studiesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -835,17 +819,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTA() {
-		return taEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTA_Organisation() {
-		return (EReference)taEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStudies_CurrentCourses() {
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -864,6 +839,15 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 */
 	public EEnum getTypeOfInstruction() {
 		return typeOfInstructionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTypeOfEmployment() {
+		return typeOfEmploymentEEnum;
 	}
 
 	/**
@@ -911,6 +895,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEAttribute(courseEClass, COURSE__CREDITS);
 		createEReference(courseEClass, COURSE__REQUIRED_PRE_COND);
 		createEReference(courseEClass, COURSE__RECOMMENDED_PRE_COND);
+		createEReference(courseEClass, COURSE__DEPENDENCY);
 		createEReference(courseEClass, COURSE__STUDY_PROGRAMS);
 		createEReference(courseEClass, COURSE__COURSE_INSTANCES);
 		createEReference(courseEClass, COURSE__DEPARTMENT);
@@ -931,23 +916,21 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		personEClass = createEClass(PERSON);
 		createEAttribute(personEClass, PERSON__NAME);
+		createEReference(personEClass, PERSON__EMPLOYMENT);
+		createEReference(personEClass, PERSON__STUDIES);
 
 		evaluationEClass = createEClass(EVALUATION);
 		createEAttribute(evaluationEClass, EVALUATION__EXAM);
 		createEAttribute(evaluationEClass, EVALUATION__PROJECT);
 		createEAttribute(evaluationEClass, EVALUATION__ASSIGMENTS);
 		createEReference(evaluationEClass, EVALUATION__COURSE_INSTANCE);
-		createEReference(evaluationEClass, EVALUATION__REGISTERED_STUDENTS);
 
 		organisationEClass = createEClass(ORGANISATION);
-		createEReference(organisationEClass, ORGANISATION__COURSE_COORDINATOR);
-		createEReference(organisationEClass, ORGANISATION__LECTURER);
-		createEReference(organisationEClass, ORGANISATION__TA);
 		createEReference(organisationEClass, ORGANISATION__COURSE_INSTANCE);
+		createEReference(organisationEClass, ORGANISATION__EMPLOYEES);
 
 		studyProgramEClass = createEClass(STUDY_PROGRAM);
 		createEAttribute(studyProgramEClass, STUDY_PROGRAM__CODE);
-		createEReference(studyProgramEClass, STUDY_PROGRAM__STUDENTS);
 
 		courseWorkEClass = createEClass(COURSE_WORK);
 		createEAttribute(courseWorkEClass, COURSE_WORK__LECTURE_HOURS);
@@ -965,22 +948,20 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(timetableEntryEClass, TIMETABLE_ENTRY__STUDY_PROGRAM);
 		createEAttribute(timetableEntryEClass, TIMETABLE_ENTRY__TYPE);
 
-		studentEClass = createEClass(STUDENT);
-		createEReference(studentEClass, STUDENT__STUDY_PROGRAM);
-		createEReference(studentEClass, STUDENT__EVALUATION);
+		employmentEClass = createEClass(EMPLOYMENT);
+		createEAttribute(employmentEClass, EMPLOYMENT__EMPLOYMENT);
+		createEReference(employmentEClass, EMPLOYMENT__EMPLOYEE);
+		createEReference(employmentEClass, EMPLOYMENT__ORGANISATION);
 
-		courseCoordinatorEClass = createEClass(COURSE_COORDINATOR);
-		createEReference(courseCoordinatorEClass, COURSE_COORDINATOR__ORGANISATION);
-
-		lecturerEClass = createEClass(LECTURER);
-		createEReference(lecturerEClass, LECTURER__ORGANISATION);
-
-		taEClass = createEClass(TA);
-		createEReference(taEClass, TA__ORGANISATION);
+		studiesEClass = createEClass(STUDIES);
+		createEReference(studiesEClass, STUDIES__PAST_COURSES);
+		createEReference(studiesEClass, STUDIES__STUDENT);
+		createEAttribute(studiesEClass, STUDIES__CURRENT_COURSES);
 
 		// Create enums
 		dayOfWeekEEnum = createEEnum(DAY_OF_WEEK);
 		typeOfInstructionEEnum = createEEnum(TYPE_OF_INSTRUCTION);
+		typeOfEmploymentEEnum = createEEnum(TYPE_OF_EMPLOYMENT);
 	}
 
 	/**
@@ -1011,10 +992,6 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		studentEClass.getESuperTypes().add(this.getPerson());
-		courseCoordinatorEClass.getESuperTypes().add(this.getPerson());
-		lecturerEClass.getESuperTypes().add(this.getPerson());
-		taEClass.getESuperTypes().add(this.getPerson());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(universityEClass, University.class, "University", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1034,6 +1011,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEAttribute(getCourse_Credits(), ecorePackage.getEDouble(), "credits", null, 1, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_RequiredPreCond(), this.getCourse(), null, "requiredPreCond", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_RecommendedPreCond(), this.getCourse(), null, "recommendedPreCond", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_Dependency(), this.getCourse(), null, "dependency", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_StudyPrograms(), this.getStudyProgram(), null, "studyPrograms", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_CourseInstances(), this.getCourseInstance(), this.getCourseInstance_Course(), "courseInstances", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_Department(), this.getDepartment(), this.getDepartment_Courses(), "department", null, 1, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1054,23 +1032,21 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerson_Name(), ecorePackage.getEString(), "name", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_Employment(), this.getEmployment(), this.getEmployment_Employee(), "employment", null, 1, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_Studies(), this.getStudies(), this.getStudies_Student(), "studies", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evaluationEClass, Evaluation.class, "Evaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvaluation_Exam(), ecorePackage.getEInt(), "exam", null, 1, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvaluation_Project(), ecorePackage.getEInt(), "project", null, 1, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvaluation_Assigments(), ecorePackage.getEInt(), "assigments", null, 1, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvaluation_CourseInstance(), this.getCourseInstance(), this.getCourseInstance_Evaluation(), "courseInstance", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvaluation_RegisteredStudents(), this.getStudent(), this.getStudent_Evaluation(), "registeredStudents", null, 0, -1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(organisationEClass, Organisation.class, "Organisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOrganisation_CourseCoordinator(), this.getCourseCoordinator(), this.getCourseCoordinator_Organisation(), "courseCoordinator", null, 1, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrganisation_Lecturer(), this.getLecturer(), this.getLecturer_Organisation(), "lecturer", null, 1, -1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrganisation_Ta(), this.getTA(), this.getTA_Organisation(), "ta", null, 0, -1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrganisation_CourseInstance(), this.getCourseInstance(), this.getCourseInstance_Organisation(), "courseInstance", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganisation_Employees(), this.getEmployment(), this.getEmployment_Organisation(), "employees", null, 0, -1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(studyProgramEClass, StudyProgram.class, "StudyProgram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStudyProgram_Code(), ecorePackage.getEString(), "code", null, 1, 1, StudyProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStudyProgram_Students(), this.getStudent(), this.getStudent_StudyProgram(), "students", null, 0, -1, StudyProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseWorkEClass, CourseWork.class, "CourseWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourseWork_LectureHours(), ecorePackage.getEInt(), "lectureHours", null, 1, 1, CourseWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1088,18 +1064,15 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEReference(getTimetableEntry_StudyProgram(), this.getStudyProgram(), null, "studyProgram", null, 0, -1, TimetableEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimetableEntry_Type(), this.getTypeOfInstruction(), "type", null, 0, 1, TimetableEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(studentEClass, Student.class, "Student", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStudent_StudyProgram(), this.getStudyProgram(), this.getStudyProgram_Students(), "studyProgram", null, 1, 1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStudent_Evaluation(), this.getEvaluation(), this.getEvaluation_RegisteredStudents(), "evaluation", null, 0, -1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(employmentEClass, Employment.class, "Employment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEmployment_Employment(), this.getTypeOfEmployment(), "employment", null, 1, -1, Employment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEmployment_Employee(), this.getPerson(), this.getPerson_Employment(), "employee", null, 1, 1, Employment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEmployment_Organisation(), this.getOrganisation(), this.getOrganisation_Employees(), "organisation", null, 1, 1, Employment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(courseCoordinatorEClass, CourseCoordinator.class, "CourseCoordinator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCourseCoordinator_Organisation(), this.getOrganisation(), this.getOrganisation_CourseCoordinator(), "organisation", null, 1, 1, CourseCoordinator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(lecturerEClass, Lecturer.class, "Lecturer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLecturer_Organisation(), this.getOrganisation(), this.getOrganisation_Lecturer(), "organisation", null, 1, 1, Lecturer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(taEClass, course.TA.class, "TA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTA_Organisation(), this.getOrganisation(), this.getOrganisation_Ta(), "organisation", null, 1, 1, course.TA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(studiesEClass, Studies.class, "Studies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStudies_PastCourses(), this.getCourse(), null, "pastCourses", null, 0, -1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStudies_Student(), this.getPerson(), this.getPerson_Studies(), "student", null, 1, 1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudies_CurrentCourses(), ecorePackage.getEEList(), "currentCourses", null, 1, 1, Studies.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dayOfWeekEEnum, DayOfWeek.class, "DayOfWeek");
@@ -1112,6 +1085,12 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEEnum(typeOfInstructionEEnum, TypeOfInstruction.class, "TypeOfInstruction");
 		addEEnumLiteral(typeOfInstructionEEnum, TypeOfInstruction.LAB);
 		addEEnumLiteral(typeOfInstructionEEnum, TypeOfInstruction.LECTURE);
+
+		initEEnum(typeOfEmploymentEEnum, TypeOfEmployment.class, "TypeOfEmployment");
+		addEEnumLiteral(typeOfEmploymentEEnum, TypeOfEmployment.STUDENT);
+		addEEnumLiteral(typeOfEmploymentEEnum, TypeOfEmployment.TA);
+		addEEnumLiteral(typeOfEmploymentEEnum, TypeOfEmployment.LECTURER);
+		addEEnumLiteral(typeOfEmploymentEEnum, TypeOfEmployment.COURSE_COORDINATOR);
 
 		// Create resource
 		createResource(eNS_URI);

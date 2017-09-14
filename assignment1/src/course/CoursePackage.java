@@ -232,13 +232,22 @@ public interface CoursePackage extends EPackage {
 	int COURSE__RECOMMENDED_PRE_COND = 5;
 
 	/**
+	 * The feature id for the '<em><b>Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE__DEPENDENCY = 6;
+
+	/**
 	 * The feature id for the '<em><b>Study Programs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__STUDY_PROGRAMS = 6;
+	int COURSE__STUDY_PROGRAMS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Course Instances</b></em>' containment reference list.
@@ -247,7 +256,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__COURSE_INSTANCES = 7;
+	int COURSE__COURSE_INSTANCES = 8;
 
 	/**
 	 * The feature id for the '<em><b>Department</b></em>' container reference.
@@ -256,7 +265,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__DEPARTMENT = 8;
+	int COURSE__DEPARTMENT = 9;
 
 	/**
 	 * The number of structural features of the '<em>Course</em>' class.
@@ -265,7 +274,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_FEATURE_COUNT = 9;
+	int COURSE_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Course</em>' class.
@@ -442,13 +451,31 @@ public interface CoursePackage extends EPackage {
 	int PERSON__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Employment</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__EMPLOYMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Studies</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__STUDIES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Person</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON_FEATURE_COUNT = 1;
+	int PERSON_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Person</em>' class.
@@ -506,22 +533,13 @@ public interface CoursePackage extends EPackage {
 	int EVALUATION__COURSE_INSTANCE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Registered Students</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVALUATION__REGISTERED_STUDENTS = 4;
-
-	/**
 	 * The number of structural features of the '<em>Evaluation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION_FEATURE_COUNT = 5;
+	int EVALUATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Evaluation</em>' class.
@@ -543,40 +561,22 @@ public interface CoursePackage extends EPackage {
 	int ORGANISATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Course Coordinator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__COURSE_COORDINATOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Lecturer</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__LECTURER = 1;
-
-	/**
-	 * The feature id for the '<em><b>Ta</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__TA = 2;
-
-	/**
 	 * The feature id for the '<em><b>Course Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION__COURSE_INSTANCE = 3;
+	int ORGANISATION__COURSE_INSTANCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Employees</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__EMPLOYEES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Organisation</em>' class.
@@ -585,7 +585,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION_FEATURE_COUNT = 4;
+	int ORGANISATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Organisation</em>' class.
@@ -616,22 +616,13 @@ public interface CoursePackage extends EPackage {
 	int STUDY_PROGRAM__CODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Students</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PROGRAM__STUDENTS = 1;
-
-	/**
 	 * The number of structural features of the '<em>Study Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PROGRAM_FEATURE_COUNT = 2;
+	int STUDY_PROGRAM_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Study Program</em>' class.
@@ -817,78 +808,32 @@ public interface CoursePackage extends EPackage {
 	int TIMETABLE_ENTRY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link course.impl.StudentImpl <em>Student</em>}' class.
+	 * The meta object id for the '{@link course.impl.EmploymentImpl <em>Employment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see course.impl.StudentImpl
-	 * @see course.impl.CoursePackageImpl#getStudent()
+	 * @see course.impl.EmploymentImpl
+	 * @see course.impl.CoursePackageImpl#getEmployment()
 	 * @generated
 	 */
-	int STUDENT = 12;
+	int EMPLOYMENT = 12;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Employment</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDENT__NAME = PERSON__NAME;
+	int EMPLOYMENT__EMPLOYMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Study Program</b></em>' container reference.
+	 * The feature id for the '<em><b>Employee</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDENT__STUDY_PROGRAM = PERSON_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Evaluation</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT__EVALUATION = PERSON_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Student</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT_FEATURE_COUNT = PERSON_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Student</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT_OPERATION_COUNT = PERSON_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link course.impl.CourseCoordinatorImpl <em>Coordinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course.impl.CourseCoordinatorImpl
-	 * @see course.impl.CoursePackageImpl#getCourseCoordinator()
-	 * @generated
-	 */
-	int COURSE_COORDINATOR = 13;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_COORDINATOR__NAME = PERSON__NAME;
+	int EMPLOYMENT__EMPLOYEE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Organisation</b></em>' container reference.
@@ -897,117 +842,80 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_COORDINATOR__ORGANISATION = PERSON_FEATURE_COUNT + 0;
+	int EMPLOYMENT__ORGANISATION = 2;
 
 	/**
-	 * The number of structural features of the '<em>Coordinator</em>' class.
+	 * The number of structural features of the '<em>Employment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_COORDINATOR_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
+	int EMPLOYMENT_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Coordinator</em>' class.
+	 * The number of operations of the '<em>Employment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_COORDINATOR_OPERATION_COUNT = PERSON_OPERATION_COUNT + 0;
+	int EMPLOYMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link course.impl.LecturerImpl <em>Lecturer</em>}' class.
+	 * The meta object id for the '{@link course.impl.StudiesImpl <em>Studies</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see course.impl.LecturerImpl
-	 * @see course.impl.CoursePackageImpl#getLecturer()
+	 * @see course.impl.StudiesImpl
+	 * @see course.impl.CoursePackageImpl#getStudies()
 	 * @generated
 	 */
-	int LECTURER = 14;
+	int STUDIES = 13;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LECTURER__NAME = PERSON__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Organisation</b></em>' container reference.
+	 * The feature id for the '<em><b>Past Courses</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LECTURER__ORGANISATION = PERSON_FEATURE_COUNT + 0;
+	int STUDIES__PAST_COURSES = 0;
 
 	/**
-	 * The number of structural features of the '<em>Lecturer</em>' class.
+	 * The feature id for the '<em><b>Student</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LECTURER_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
+	int STUDIES__STUDENT = 1;
 
 	/**
-	 * The number of operations of the '<em>Lecturer</em>' class.
+	 * The feature id for the '<em><b>Current Courses</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LECTURER_OPERATION_COUNT = PERSON_OPERATION_COUNT + 0;
+	int STUDIES__CURRENT_COURSES = 2;
 
 	/**
-	 * The meta object id for the '{@link course.impl.TAImpl <em>TA</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course.impl.TAImpl
-	 * @see course.impl.CoursePackageImpl#getTA()
-	 * @generated
-	 */
-	int TA = 15;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of structural features of the '<em>Studies</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TA__NAME = PERSON__NAME;
+	int STUDIES_FEATURE_COUNT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Organisation</b></em>' container reference.
+	 * The number of operations of the '<em>Studies</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TA__ORGANISATION = PERSON_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>TA</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TA_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>TA</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TA_OPERATION_COUNT = PERSON_OPERATION_COUNT + 0;
+	int STUDIES_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link course.DayOfWeek <em>Day Of Week</em>}' enum.
@@ -1017,7 +925,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getDayOfWeek()
 	 * @generated
 	 */
-	int DAY_OF_WEEK = 16;
+	int DAY_OF_WEEK = 14;
 
 	/**
 	 * The meta object id for the '{@link course.TypeOfInstruction <em>Type Of Instruction</em>}' enum.
@@ -1027,7 +935,17 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getTypeOfInstruction()
 	 * @generated
 	 */
-	int TYPE_OF_INSTRUCTION = 17;
+	int TYPE_OF_INSTRUCTION = 15;
+
+	/**
+	 * The meta object id for the '{@link course.TypeOfEmployment <em>Type Of Employment</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.TypeOfEmployment
+	 * @see course.impl.CoursePackageImpl#getTypeOfEmployment()
+	 * @generated
+	 */
+	int TYPE_OF_EMPLOYMENT = 16;
 
 
 	/**
@@ -1191,6 +1109,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCourse_RecommendedPreCond();
+
+	/**
+	 * Returns the meta object for the reference list '{@link course.Course#getDependency <em>Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency</em>'.
+	 * @see course.Course#getDependency()
+	 * @see #getCourse()
+	 * @generated
+	 */
+	EReference getCourse_Dependency();
 
 	/**
 	 * Returns the meta object for the reference list '{@link course.Course#getStudyPrograms <em>Study Programs</em>}'.
@@ -1377,6 +1306,28 @@ public interface CoursePackage extends EPackage {
 	EAttribute getPerson_Name();
 
 	/**
+	 * Returns the meta object for the reference list '{@link course.Person#getEmployment <em>Employment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Employment</em>'.
+	 * @see course.Person#getEmployment()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EReference getPerson_Employment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link course.Person#getStudies <em>Studies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Studies</em>'.
+	 * @see course.Person#getStudies()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EReference getPerson_Studies();
+
+	/**
 	 * Returns the meta object for class '{@link course.Evaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1431,17 +1382,6 @@ public interface CoursePackage extends EPackage {
 	EReference getEvaluation_CourseInstance();
 
 	/**
-	 * Returns the meta object for the reference list '{@link course.Evaluation#getRegisteredStudents <em>Registered Students</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Registered Students</em>'.
-	 * @see course.Evaluation#getRegisteredStudents()
-	 * @see #getEvaluation()
-	 * @generated
-	 */
-	EReference getEvaluation_RegisteredStudents();
-
-	/**
 	 * Returns the meta object for class '{@link course.Organisation <em>Organisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1450,39 +1390,6 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOrganisation();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link course.Organisation#getCourseCoordinator <em>Course Coordinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Course Coordinator</em>'.
-	 * @see course.Organisation#getCourseCoordinator()
-	 * @see #getOrganisation()
-	 * @generated
-	 */
-	EReference getOrganisation_CourseCoordinator();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.Organisation#getLecturer <em>Lecturer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Lecturer</em>'.
-	 * @see course.Organisation#getLecturer()
-	 * @see #getOrganisation()
-	 * @generated
-	 */
-	EReference getOrganisation_Lecturer();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.Organisation#getTa <em>Ta</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Ta</em>'.
-	 * @see course.Organisation#getTa()
-	 * @see #getOrganisation()
-	 * @generated
-	 */
-	EReference getOrganisation_Ta();
 
 	/**
 	 * Returns the meta object for the container reference '{@link course.Organisation#getCourseInstance <em>Course Instance</em>}'.
@@ -1494,6 +1401,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOrganisation_CourseInstance();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.Organisation#getEmployees <em>Employees</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Employees</em>'.
+	 * @see course.Organisation#getEmployees()
+	 * @see #getOrganisation()
+	 * @generated
+	 */
+	EReference getOrganisation_Employees();
 
 	/**
 	 * Returns the meta object for class '{@link course.StudyProgram <em>Study Program</em>}'.
@@ -1515,17 +1433,6 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStudyProgram_Code();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.StudyProgram#getStudents <em>Students</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Students</em>'.
-	 * @see course.StudyProgram#getStudents()
-	 * @see #getStudyProgram()
-	 * @generated
-	 */
-	EReference getStudyProgram_Students();
 
 	/**
 	 * Returns the meta object for class '{@link course.CourseWork <em>Work</em>}'.
@@ -1668,99 +1575,90 @@ public interface CoursePackage extends EPackage {
 	EAttribute getTimetableEntry_Type();
 
 	/**
-	 * Returns the meta object for class '{@link course.Student <em>Student</em>}'.
+	 * Returns the meta object for class '{@link course.Employment <em>Employment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Student</em>'.
-	 * @see course.Student
+	 * @return the meta object for class '<em>Employment</em>'.
+	 * @see course.Employment
 	 * @generated
 	 */
-	EClass getStudent();
+	EClass getEmployment();
 
 	/**
-	 * Returns the meta object for the container reference '{@link course.Student#getStudyProgram <em>Study Program</em>}'.
+	 * Returns the meta object for the attribute list '{@link course.Employment#getEmployment <em>Employment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Study Program</em>'.
-	 * @see course.Student#getStudyProgram()
-	 * @see #getStudent()
+	 * @return the meta object for the attribute list '<em>Employment</em>'.
+	 * @see course.Employment#getEmployment()
+	 * @see #getEmployment()
 	 * @generated
 	 */
-	EReference getStudent_StudyProgram();
+	EAttribute getEmployment_Employment();
 
 	/**
-	 * Returns the meta object for the reference list '{@link course.Student#getEvaluation <em>Evaluation</em>}'.
+	 * Returns the meta object for the reference '{@link course.Employment#getEmployee <em>Employee</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Evaluation</em>'.
-	 * @see course.Student#getEvaluation()
-	 * @see #getStudent()
+	 * @return the meta object for the reference '<em>Employee</em>'.
+	 * @see course.Employment#getEmployee()
+	 * @see #getEmployment()
 	 * @generated
 	 */
-	EReference getStudent_Evaluation();
+	EReference getEmployment_Employee();
 
 	/**
-	 * Returns the meta object for class '{@link course.CourseCoordinator <em>Coordinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Coordinator</em>'.
-	 * @see course.CourseCoordinator
-	 * @generated
-	 */
-	EClass getCourseCoordinator();
-
-	/**
-	 * Returns the meta object for the container reference '{@link course.CourseCoordinator#getOrganisation <em>Organisation</em>}'.
+	 * Returns the meta object for the container reference '{@link course.Employment#getOrganisation <em>Organisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Organisation</em>'.
-	 * @see course.CourseCoordinator#getOrganisation()
-	 * @see #getCourseCoordinator()
+	 * @see course.Employment#getOrganisation()
+	 * @see #getEmployment()
 	 * @generated
 	 */
-	EReference getCourseCoordinator_Organisation();
+	EReference getEmployment_Organisation();
 
 	/**
-	 * Returns the meta object for class '{@link course.Lecturer <em>Lecturer</em>}'.
+	 * Returns the meta object for class '{@link course.Studies <em>Studies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Lecturer</em>'.
-	 * @see course.Lecturer
+	 * @return the meta object for class '<em>Studies</em>'.
+	 * @see course.Studies
 	 * @generated
 	 */
-	EClass getLecturer();
+	EClass getStudies();
 
 	/**
-	 * Returns the meta object for the container reference '{@link course.Lecturer#getOrganisation <em>Organisation</em>}'.
+	 * Returns the meta object for the reference list '{@link course.Studies#getPastCourses <em>Past Courses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Organisation</em>'.
-	 * @see course.Lecturer#getOrganisation()
-	 * @see #getLecturer()
+	 * @return the meta object for the reference list '<em>Past Courses</em>'.
+	 * @see course.Studies#getPastCourses()
+	 * @see #getStudies()
 	 * @generated
 	 */
-	EReference getLecturer_Organisation();
+	EReference getStudies_PastCourses();
 
 	/**
-	 * Returns the meta object for class '{@link course.TA <em>TA</em>}'.
+	 * Returns the meta object for the container reference '{@link course.Studies#getStudent <em>Student</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>TA</em>'.
-	 * @see course.TA
+	 * @return the meta object for the container reference '<em>Student</em>'.
+	 * @see course.Studies#getStudent()
+	 * @see #getStudies()
 	 * @generated
 	 */
-	EClass getTA();
+	EReference getStudies_Student();
 
 	/**
-	 * Returns the meta object for the container reference '{@link course.TA#getOrganisation <em>Organisation</em>}'.
+	 * Returns the meta object for the attribute '{@link course.Studies#getCurrentCourses <em>Current Courses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Organisation</em>'.
-	 * @see course.TA#getOrganisation()
-	 * @see #getTA()
+	 * @return the meta object for the attribute '<em>Current Courses</em>'.
+	 * @see course.Studies#getCurrentCourses()
+	 * @see #getStudies()
 	 * @generated
 	 */
-	EReference getTA_Organisation();
+	EAttribute getStudies_CurrentCourses();
 
 	/**
 	 * Returns the meta object for enum '{@link course.DayOfWeek <em>Day Of Week</em>}'.
@@ -1781,6 +1679,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTypeOfInstruction();
+
+	/**
+	 * Returns the meta object for enum '{@link course.TypeOfEmployment <em>Type Of Employment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Type Of Employment</em>'.
+	 * @see course.TypeOfEmployment
+	 * @generated
+	 */
+	EEnum getTypeOfEmployment();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1932,6 +1840,14 @@ public interface CoursePackage extends EPackage {
 		EReference COURSE__RECOMMENDED_PRE_COND = eINSTANCE.getCourse_RecommendedPreCond();
 
 		/**
+		 * The meta object literal for the '<em><b>Dependency</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE__DEPENDENCY = eINSTANCE.getCourse_Dependency();
+
+		/**
 		 * The meta object literal for the '<em><b>Study Programs</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2074,6 +1990,22 @@ public interface CoursePackage extends EPackage {
 		EAttribute PERSON__NAME = eINSTANCE.getPerson_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Employment</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSON__EMPLOYMENT = eINSTANCE.getPerson_Employment();
+
+		/**
+		 * The meta object literal for the '<em><b>Studies</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSON__STUDIES = eINSTANCE.getPerson_Studies();
+
+		/**
 		 * The meta object literal for the '{@link course.impl.EvaluationImpl <em>Evaluation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2116,14 +2048,6 @@ public interface CoursePackage extends EPackage {
 		EReference EVALUATION__COURSE_INSTANCE = eINSTANCE.getEvaluation_CourseInstance();
 
 		/**
-		 * The meta object literal for the '<em><b>Registered Students</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVALUATION__REGISTERED_STUDENTS = eINSTANCE.getEvaluation_RegisteredStudents();
-
-		/**
 		 * The meta object literal for the '{@link course.impl.OrganisationImpl <em>Organisation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2134,36 +2058,20 @@ public interface CoursePackage extends EPackage {
 		EClass ORGANISATION = eINSTANCE.getOrganisation();
 
 		/**
-		 * The meta object literal for the '<em><b>Course Coordinator</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORGANISATION__COURSE_COORDINATOR = eINSTANCE.getOrganisation_CourseCoordinator();
-
-		/**
-		 * The meta object literal for the '<em><b>Lecturer</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORGANISATION__LECTURER = eINSTANCE.getOrganisation_Lecturer();
-
-		/**
-		 * The meta object literal for the '<em><b>Ta</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORGANISATION__TA = eINSTANCE.getOrganisation_Ta();
-
-		/**
 		 * The meta object literal for the '<em><b>Course Instance</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ORGANISATION__COURSE_INSTANCE = eINSTANCE.getOrganisation_CourseInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Employees</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANISATION__EMPLOYEES = eINSTANCE.getOrganisation_Employees();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.StudyProgramImpl <em>Study Program</em>}' class.
@@ -2182,14 +2090,6 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STUDY_PROGRAM__CODE = eINSTANCE.getStudyProgram_Code();
-
-		/**
-		 * The meta object literal for the '<em><b>Students</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STUDY_PROGRAM__STUDENTS = eINSTANCE.getStudyProgram_Students();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.CourseWorkImpl <em>Work</em>}' class.
@@ -2302,40 +2202,30 @@ public interface CoursePackage extends EPackage {
 		EAttribute TIMETABLE_ENTRY__TYPE = eINSTANCE.getTimetableEntry_Type();
 
 		/**
-		 * The meta object literal for the '{@link course.impl.StudentImpl <em>Student</em>}' class.
+		 * The meta object literal for the '{@link course.impl.EmploymentImpl <em>Employment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see course.impl.StudentImpl
-		 * @see course.impl.CoursePackageImpl#getStudent()
+		 * @see course.impl.EmploymentImpl
+		 * @see course.impl.CoursePackageImpl#getEmployment()
 		 * @generated
 		 */
-		EClass STUDENT = eINSTANCE.getStudent();
+		EClass EMPLOYMENT = eINSTANCE.getEmployment();
 
 		/**
-		 * The meta object literal for the '<em><b>Study Program</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Employment</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STUDENT__STUDY_PROGRAM = eINSTANCE.getStudent_StudyProgram();
+		EAttribute EMPLOYMENT__EMPLOYMENT = eINSTANCE.getEmployment_Employment();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluation</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Employee</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STUDENT__EVALUATION = eINSTANCE.getStudent_Evaluation();
-
-		/**
-		 * The meta object literal for the '{@link course.impl.CourseCoordinatorImpl <em>Coordinator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see course.impl.CourseCoordinatorImpl
-		 * @see course.impl.CoursePackageImpl#getCourseCoordinator()
-		 * @generated
-		 */
-		EClass COURSE_COORDINATOR = eINSTANCE.getCourseCoordinator();
+		EReference EMPLOYMENT__EMPLOYEE = eINSTANCE.getEmployment_Employee();
 
 		/**
 		 * The meta object literal for the '<em><b>Organisation</b></em>' container reference feature.
@@ -2343,43 +2233,41 @@ public interface CoursePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COURSE_COORDINATOR__ORGANISATION = eINSTANCE.getCourseCoordinator_Organisation();
+		EReference EMPLOYMENT__ORGANISATION = eINSTANCE.getEmployment_Organisation();
 
 		/**
-		 * The meta object literal for the '{@link course.impl.LecturerImpl <em>Lecturer</em>}' class.
+		 * The meta object literal for the '{@link course.impl.StudiesImpl <em>Studies</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see course.impl.LecturerImpl
-		 * @see course.impl.CoursePackageImpl#getLecturer()
+		 * @see course.impl.StudiesImpl
+		 * @see course.impl.CoursePackageImpl#getStudies()
 		 * @generated
 		 */
-		EClass LECTURER = eINSTANCE.getLecturer();
+		EClass STUDIES = eINSTANCE.getStudies();
 
 		/**
-		 * The meta object literal for the '<em><b>Organisation</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LECTURER__ORGANISATION = eINSTANCE.getLecturer_Organisation();
-
-		/**
-		 * The meta object literal for the '{@link course.impl.TAImpl <em>TA</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see course.impl.TAImpl
-		 * @see course.impl.CoursePackageImpl#getTA()
-		 * @generated
-		 */
-		EClass TA = eINSTANCE.getTA();
-
-		/**
-		 * The meta object literal for the '<em><b>Organisation</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Past Courses</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TA__ORGANISATION = eINSTANCE.getTA_Organisation();
+		EReference STUDIES__PAST_COURSES = eINSTANCE.getStudies_PastCourses();
+
+		/**
+		 * The meta object literal for the '<em><b>Student</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDIES__STUDENT = eINSTANCE.getStudies_Student();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Courses</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDIES__CURRENT_COURSES = eINSTANCE.getStudies_CurrentCourses();
 
 		/**
 		 * The meta object literal for the '{@link course.DayOfWeek <em>Day Of Week</em>}' enum.
@@ -2400,6 +2288,16 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TYPE_OF_INSTRUCTION = eINSTANCE.getTypeOfInstruction();
+
+		/**
+		 * The meta object literal for the '{@link course.TypeOfEmployment <em>Type Of Employment</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.TypeOfEmployment
+		 * @see course.impl.CoursePackageImpl#getTypeOfEmployment()
+		 * @generated
+		 */
+		EEnum TYPE_OF_EMPLOYMENT = eINSTANCE.getTypeOfEmployment();
 
 	}
 

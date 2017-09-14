@@ -138,31 +138,15 @@ public class CourseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoursePackage.STUDENT: {
-				Student student = (Student)theEObject;
-				T result = caseStudent(student);
-				if (result == null) result = casePerson(student);
+			case CoursePackage.EMPLOYMENT: {
+				Employment employment = (Employment)theEObject;
+				T result = caseEmployment(employment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoursePackage.COURSE_COORDINATOR: {
-				CourseCoordinator courseCoordinator = (CourseCoordinator)theEObject;
-				T result = caseCourseCoordinator(courseCoordinator);
-				if (result == null) result = casePerson(courseCoordinator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CoursePackage.LECTURER: {
-				Lecturer lecturer = (Lecturer)theEObject;
-				T result = caseLecturer(lecturer);
-				if (result == null) result = casePerson(lecturer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CoursePackage.TA: {
-				TA ta = (TA)theEObject;
-				T result = caseTA(ta);
-				if (result == null) result = casePerson(ta);
+			case CoursePackage.STUDIES: {
+				Studies studies = (Studies)theEObject;
+				T result = caseStudies(studies);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -351,62 +335,32 @@ public class CourseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Student</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Employment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Student</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Employment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStudent(Student object) {
+	public T caseEmployment(Employment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Coordinator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Studies</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Coordinator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Studies</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCourseCoordinator(CourseCoordinator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Lecturer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Lecturer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLecturer(Lecturer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>TA</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>TA</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTA(TA object) {
+	public T caseStudies(Studies object) {
 		return null;
 	}
 

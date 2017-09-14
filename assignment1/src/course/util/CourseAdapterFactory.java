@@ -116,20 +116,12 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createTimetableEntryAdapter();
 			}
 			@Override
-			public Adapter caseStudent(Student object) {
-				return createStudentAdapter();
+			public Adapter caseEmployment(Employment object) {
+				return createEmploymentAdapter();
 			}
 			@Override
-			public Adapter caseCourseCoordinator(CourseCoordinator object) {
-				return createCourseCoordinatorAdapter();
-			}
-			@Override
-			public Adapter caseLecturer(Lecturer object) {
-				return createLecturerAdapter();
-			}
-			@Override
-			public Adapter caseTA(TA object) {
-				return createTAAdapter();
+			public Adapter caseStudies(Studies object) {
+				return createStudiesAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -320,58 +312,30 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link course.Student <em>Student</em>}'.
+	 * Creates a new adapter for an object of class '{@link course.Employment <em>Employment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see course.Student
+	 * @see course.Employment
 	 * @generated
 	 */
-	public Adapter createStudentAdapter() {
+	public Adapter createEmploymentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link course.CourseCoordinator <em>Coordinator</em>}'.
+	 * Creates a new adapter for an object of class '{@link course.Studies <em>Studies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see course.CourseCoordinator
+	 * @see course.Studies
 	 * @generated
 	 */
-	public Adapter createCourseCoordinatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link course.Lecturer <em>Lecturer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see course.Lecturer
-	 * @generated
-	 */
-	public Adapter createLecturerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link course.TA <em>TA</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see course.TA
-	 * @generated
-	 */
-	public Adapter createTAAdapter() {
+	public Adapter createStudiesAdapter() {
 		return null;
 	}
 

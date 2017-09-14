@@ -2,8 +2,6 @@
  */
 package course;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link course.StudyProgram#getCode <em>Code</em>}</li>
- *   <li>{@link course.StudyProgram#getStudents <em>Students</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyProgram()
@@ -49,23 +46,5 @@ public interface StudyProgram extends EObject {
 	 * @generated
 	 */
 	void setCode(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Students</b></em>' containment reference list.
-	 * The list contents are of type {@link course.Student}.
-	 * It is bidirectional and its opposite is '{@link course.Student#getStudyProgram <em>Study Program</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Students</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Students</em>' containment reference list.
-	 * @see course.CoursePackage#getStudyProgram_Students()
-	 * @see course.Student#getStudyProgram
-	 * @model opposite="studyProgram" containment="true"
-	 * @generated
-	 */
-	EList<Student> getStudents();
 
 } // StudyProgram

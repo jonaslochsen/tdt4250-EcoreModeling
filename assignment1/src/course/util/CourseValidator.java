@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EPackage;
@@ -111,18 +110,16 @@ public class CourseValidator extends EObjectValidator {
 				return validateTimetable((Timetable)value, diagnostics, context);
 			case CoursePackage.TIMETABLE_ENTRY:
 				return validateTimetableEntry((TimetableEntry)value, diagnostics, context);
-			case CoursePackage.STUDENT:
-				return validateStudent((Student)value, diagnostics, context);
-			case CoursePackage.COURSE_COORDINATOR:
-				return validateCourseCoordinator((CourseCoordinator)value, diagnostics, context);
-			case CoursePackage.LECTURER:
-				return validateLecturer((Lecturer)value, diagnostics, context);
-			case CoursePackage.TA:
-				return validateTA((TA)value, diagnostics, context);
+			case CoursePackage.EMPLOYMENT:
+				return validateEmployment((Employment)value, diagnostics, context);
+			case CoursePackage.STUDIES:
+				return validateStudies((Studies)value, diagnostics, context);
 			case CoursePackage.DAY_OF_WEEK:
 				return validateDayOfWeek((DayOfWeek)value, diagnostics, context);
 			case CoursePackage.TYPE_OF_INSTRUCTION:
 				return validateTypeOfInstruction((TypeOfInstruction)value, diagnostics, context);
+			case CoursePackage.TYPE_OF_EMPLOYMENT:
+				return validateTypeOfEmployment((TypeOfEmployment)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -185,21 +182,21 @@ public class CourseValidator extends EObjectValidator {
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		int totalCourseHours = courseInstance.getCourseWork().getLabHours() + courseInstance.getCourseWork().getLectureHours();
-		
-		int scheduledHours = 0;
-		
-		EList<TimetableEntry> timeTableEntries = courseInstance.getTimeTable().getTimetableEntry();
-		
-		for (TimetableEntry timetableEntry : timeTableEntries) {
-			String lecture = timetableEntry.getTime();
-			String[] splitLectureString = lecture.split("-");
-			scheduledHours += Integer.parseInt(splitLectureString[1].substring(0, 2)) - Integer.parseInt(splitLectureString[0].substring(0, 2));
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "scheduledHours", getObjectLabel(courseInstance, context) },
+						 new Object[] { courseInstance },
+						 context));
+			}
+			return false;
 		}
-		
-		if (totalCourseHours == scheduledHours)
-			return true;
-		return false;
+		return true;
 	}
 
 	/**
@@ -279,8 +276,8 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStudent(Student student, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(student, diagnostics, context);
+	public boolean validateEmployment(Employment employment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(employment, diagnostics, context);
 	}
 
 	/**
@@ -288,26 +285,8 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCourseCoordinator(CourseCoordinator courseCoordinator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(courseCoordinator, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateLecturer(Lecturer lecturer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(lecturer, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTA(TA ta, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(ta, diagnostics, context);
+	public boolean validateStudies(Studies studies, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(studies, diagnostics, context);
 	}
 
 	/**
@@ -325,6 +304,15 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTypeOfInstruction(TypeOfInstruction typeOfInstruction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTypeOfEmployment(TypeOfEmployment typeOfEmployment, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

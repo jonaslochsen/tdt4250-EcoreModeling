@@ -5,14 +5,9 @@ package course.impl;
 import course.CourseInstance;
 import course.CoursePackage;
 import course.Evaluation;
-import course.Student;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -20,9 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course.impl.EvaluationImpl#getProject <em>Project</em>}</li>
  *   <li>{@link course.impl.EvaluationImpl#getAssigments <em>Assigments</em>}</li>
  *   <li>{@link course.impl.EvaluationImpl#getCourseInstance <em>Course Instance</em>}</li>
- *   <li>{@link course.impl.EvaluationImpl#getRegisteredStudents <em>Registered Students</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,16 +93,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * @ordered
 	 */
 	protected int assigments = ASSIGMENTS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRegisteredStudents() <em>Registered Students</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRegisteredStudents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Student> registeredStudents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,19 +222,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Student> getRegisteredStudents() {
-		if (registeredStudents == null) {
-			registeredStudents = new EObjectWithInverseResolvingEList.ManyInverse<Student>(Student.class, this, CoursePackage.EVALUATION__REGISTERED_STUDENTS, CoursePackage.STUDENT__EVALUATION);
-		}
-		return registeredStudents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -260,8 +229,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetCourseInstance((CourseInstance)otherEnd, msgs);
-			case CoursePackage.EVALUATION__REGISTERED_STUDENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRegisteredStudents()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -276,8 +243,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 		switch (featureID) {
 			case CoursePackage.EVALUATION__COURSE_INSTANCE:
 				return basicSetCourseInstance(null, msgs);
-			case CoursePackage.EVALUATION__REGISTERED_STUDENTS:
-				return ((InternalEList<?>)getRegisteredStudents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -312,8 +277,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 				return getAssigments();
 			case CoursePackage.EVALUATION__COURSE_INSTANCE:
 				return getCourseInstance();
-			case CoursePackage.EVALUATION__REGISTERED_STUDENTS:
-				return getRegisteredStudents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,7 +286,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -338,10 +300,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 				return;
 			case CoursePackage.EVALUATION__COURSE_INSTANCE:
 				setCourseInstance((CourseInstance)newValue);
-				return;
-			case CoursePackage.EVALUATION__REGISTERED_STUDENTS:
-				getRegisteredStudents().clear();
-				getRegisteredStudents().addAll((Collection<? extends Student>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,9 +325,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 			case CoursePackage.EVALUATION__COURSE_INSTANCE:
 				setCourseInstance((CourseInstance)null);
 				return;
-			case CoursePackage.EVALUATION__REGISTERED_STUDENTS:
-				getRegisteredStudents().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -390,8 +345,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 				return assigments != ASSIGMENTS_EDEFAULT;
 			case CoursePackage.EVALUATION__COURSE_INSTANCE:
 				return getCourseInstance() != null;
-			case CoursePackage.EVALUATION__REGISTERED_STUDENTS:
-				return registeredStudents != null && !registeredStudents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

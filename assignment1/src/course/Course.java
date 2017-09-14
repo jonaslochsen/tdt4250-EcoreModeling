@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Course#getCredits <em>Credits</em>}</li>
  *   <li>{@link course.Course#getRequiredPreCond <em>Required Pre Cond</em>}</li>
  *   <li>{@link course.Course#getRecommendedPreCond <em>Recommended Pre Cond</em>}</li>
+ *   <li>{@link course.Course#getDependency <em>Dependency</em>}</li>
  *   <li>{@link course.Course#getStudyPrograms <em>Study Programs</em>}</li>
  *   <li>{@link course.Course#getCourseInstances <em>Course Instances</em>}</li>
  *   <li>{@link course.Course#getDepartment <em>Department</em>}</li>
@@ -166,6 +167,22 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	EList<Course> getRecommendedPreCond();
+
+	/**
+	 * Returns the value of the '<em><b>Dependency</b></em>' reference list.
+	 * The list contents are of type {@link course.Course}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependency</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependency</em>' reference list.
+	 * @see course.CoursePackage#getCourse_Dependency()
+	 * @model
+	 * @generated
+	 */
+	EList<Course> getDependency();
 
 	/**
 	 * Returns the value of the '<em><b>Study Programs</b></em>' reference list.

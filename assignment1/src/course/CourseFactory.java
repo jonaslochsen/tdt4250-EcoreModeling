@@ -130,40 +130,22 @@ public interface CourseFactory extends EFactory {
 	TimetableEntry createTimetableEntry();
 
 	/**
-	 * Returns a new object of class '<em>Student</em>'.
+	 * Returns a new object of class '<em>Employment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Student</em>'.
+	 * @return a new object of class '<em>Employment</em>'.
 	 * @generated
 	 */
-	Student createStudent();
+	Employment createEmployment();
 
 	/**
-	 * Returns a new object of class '<em>Coordinator</em>'.
+	 * Returns a new object of class '<em>Studies</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Coordinator</em>'.
+	 * @return a new object of class '<em>Studies</em>'.
 	 * @generated
 	 */
-	CourseCoordinator createCourseCoordinator();
-
-	/**
-	 * Returns a new object of class '<em>Lecturer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lecturer</em>'.
-	 * @generated
-	 */
-	Lecturer createLecturer();
-
-	/**
-	 * Returns a new object of class '<em>TA</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>TA</em>'.
-	 * @generated
-	 */
-	TA createTA();
+	Studies createStudies();
 
 	/**
 	 * Returns the package supported by this factory.
