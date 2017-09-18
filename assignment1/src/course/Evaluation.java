@@ -136,6 +136,6 @@ public interface Evaluation extends EObject {
 	 * @model studentRequired="true"
 	 * @generated
 	 */
-	double completeExam(Studies student);
+	void completeExam(Studies student);
 
 } // Evaluation

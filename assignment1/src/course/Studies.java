@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Studies#getStudent <em>Student</em>}</li>
  *   <li>{@link course.Studies#getCurrentCourses <em>Current Courses</em>}</li>
  *   <li>{@link course.Studies#getExams <em>Exams</em>}</li>
+ *   <li>{@link course.Studies#getCredits <em>Credits</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudies()
@@ -121,6 +122,32 @@ public interface Studies extends EObject {
 	 * @generated
 	 */
 	void setExams(EList value);
+
+	/**
+	 * Returns the value of the '<em><b>Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Credits</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credits</em>' attribute.
+	 * @see #setCredits(double)
+	 * @see course.CoursePackage#getStudies_Credits()
+	 * @model required="true"
+	 * @generated
+	 */
+	double getCredits();
+
+	/**
+	 * Sets the value of the '{@link course.Studies#getCredits <em>Credits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Credits</em>' attribute.
+	 * @see #getCredits()
+	 * @generated
+	 */
+	void setCredits(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -179,7 +179,6 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateCourseInstance_scheduledHours(CourseInstance courseInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -298,7 +297,6 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateEmployment_cannotBeStudentAndTAInSameCourse(Employment employment, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT

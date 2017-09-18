@@ -864,6 +864,15 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStudies_Credits() {
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getStudies__SignUpForExam__CourseInstance() {
 		return studiesEClass.getEOperations().get(0);
 	}
@@ -1023,6 +1032,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(studiesEClass, STUDIES__STUDENT);
 		createEAttribute(studiesEClass, STUDIES__CURRENT_COURSES);
 		createEAttribute(studiesEClass, STUDIES__EXAMS);
+		createEAttribute(studiesEClass, STUDIES__CREDITS);
 		createEOperation(studiesEClass, STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE);
 		createEOperation(studiesEClass, STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE);
 
@@ -1111,7 +1121,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEAttribute(getEvaluation_Assigments(), ecorePackage.getEInt(), "assigments", null, 1, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvaluation_CourseInstance(), this.getCourseInstance(), this.getCourseInstance_Evaluation(), "courseInstance", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getEvaluation__CompleteExam__Studies(), ecorePackage.getEDouble(), "completeExam", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getEvaluation__CompleteExam__Studies(), null, "completeExam", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getStudies(), "student", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(organisationEClass, Organisation.class, "Organisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1147,6 +1157,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEReference(getStudies_Student(), this.getPerson(), this.getPerson_Studies(), "student", null, 1, 1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudies_CurrentCourses(), ecorePackage.getEEList(), "currentCourses", null, 1, 1, Studies.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudies_Exams(), ecorePackage.getEEList(), "exams", null, 1, 1, Studies.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudies_Credits(), ecorePackage.getEDouble(), "credits", null, 1, 1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getStudies__SignUpForExam__CourseInstance(), null, "signUpForExam", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCourseInstance(), "courseInstance", 1, 1, IS_UNIQUE, IS_ORDERED);

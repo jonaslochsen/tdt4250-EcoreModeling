@@ -928,13 +928,22 @@ public interface CoursePackage extends EPackage {
 	int STUDIES__EXAMS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDIES__CREDITS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Studies</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES_FEATURE_COUNT = 4;
+	int STUDIES_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Sign Up For Exam</em>' operation.
@@ -1750,6 +1759,17 @@ public interface CoursePackage extends EPackage {
 	EAttribute getStudies_Exams();
 
 	/**
+	 * Returns the meta object for the attribute '{@link course.Studies#getCredits <em>Credits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Credits</em>'.
+	 * @see course.Studies#getCredits()
+	 * @see #getStudies()
+	 * @generated
+	 */
+	EAttribute getStudies_Credits();
+
+	/**
 	 * Returns the meta object for the '{@link course.Studies#signUpForExam(course.CourseInstance) <em>Sign Up For Exam</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2411,6 +2431,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STUDIES__EXAMS = eINSTANCE.getStudies_Exams();
+
+		/**
+		 * The meta object literal for the '<em><b>Credits</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDIES__CREDITS = eINSTANCE.getStudies_Credits();
 
 		/**
 		 * The meta object literal for the '<em><b>Sign Up For Exam</b></em>' operation.

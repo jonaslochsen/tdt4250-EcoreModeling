@@ -225,10 +225,14 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public double completeExam(Studies student) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void completeExam(Studies student) {
+		double courseCredits = getCourseInstance().getCourse().getCredits();
+		double pastCredits = student.getCredits();
+		student.setCredits(pastCredits + courseCredits);
+		student.signOffFromExam(getCourseInstance());
+		
+		//Remove from currentCourse
+		//Add to pastCourses
 	}
 
 	/**
@@ -372,7 +376,8 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case CoursePackage.EVALUATION___COMPLETE_EXAM__STUDIES:
-				return completeExam((Studies)arguments.get(0));
+				completeExam((Studies)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

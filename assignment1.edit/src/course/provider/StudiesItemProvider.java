@@ -64,6 +64,7 @@ public class StudiesItemProvider
 			addPastCoursesPropertyDescriptor(object);
 			addCurrentCoursesPropertyDescriptor(object);
 			addExamsPropertyDescriptor(object);
+			addCreditsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,6 +136,28 @@ public class StudiesItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Credits feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCreditsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Studies_credits_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Studies_credits_feature", "_UI_Studies_type"),
+				 CoursePackage.Literals.STUDIES__CREDITS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Studies.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,6 +198,7 @@ public class StudiesItemProvider
 		switch (notification.getFeatureID(Studies.class)) {
 			case CoursePackage.STUDIES__CURRENT_COURSES:
 			case CoursePackage.STUDIES__EXAMS:
+			case CoursePackage.STUDIES__CREDITS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

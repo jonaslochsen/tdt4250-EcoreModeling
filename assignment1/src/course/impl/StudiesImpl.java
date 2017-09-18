@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link course.impl.StudiesImpl#getStudent <em>Student</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getCurrentCourses <em>Current Courses</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getExams <em>Exams</em>}</li>
+ *   <li>{@link course.impl.StudiesImpl#getCredits <em>Credits</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,10 +60,30 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExams()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected EList<CourseInstance> exams;
+
+	/**
+	 * The default value of the '{@link #getCredits() <em>Credits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCredits()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList exams;
+	protected static final double CREDITS_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getCredits() <em>Credits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCredits()
+	 * @generated
+	 * @ordered
+	 */
+	protected double credits = CREDITS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,19 +189,19 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList getExams() {
+	public EList<CourseInstance> getExams() {
 		return exams;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setExams(EList newExams) {
-		EList oldExams = exams;
+		EList<CourseInstance> oldExams = exams;
 		exams = newExams;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDIES__EXAMS, oldExams, exams));
@@ -191,10 +212,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void signUpForExam(CourseInstance courseInstance) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public double getCredits() {
+		return credits;
 	}
 
 	/**
@@ -202,10 +221,29 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setCredits(double newCredits) {
+		double oldCredits = credits;
+		credits = newCredits;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDIES__CREDITS, oldCredits, credits));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void signUpForExam(CourseInstance courseInstance) {
+		exams.add(courseInstance);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public void signOffFromExam(CourseInstance courseInstance) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		exams.remove(courseInstance);
 	}
 
 	/**
@@ -268,6 +306,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return getCurrentCourses();
 			case CoursePackage.STUDIES__EXAMS:
 				return getExams();
+			case CoursePackage.STUDIES__CREDITS:
+				return getCredits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +334,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 			case CoursePackage.STUDIES__EXAMS:
 				setExams((EList)newValue);
 				return;
+			case CoursePackage.STUDIES__CREDITS:
+				setCredits((Double)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -318,6 +361,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 			case CoursePackage.STUDIES__EXAMS:
 				setExams((EList)null);
 				return;
+			case CoursePackage.STUDIES__CREDITS:
+				setCredits(CREDITS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,6 +384,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return getCurrentCourses() != null;
 			case CoursePackage.STUDIES__EXAMS:
 				return exams != null;
+			case CoursePackage.STUDIES__CREDITS:
+				return credits != CREDITS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -372,6 +420,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (exams: ");
 		result.append(exams);
+		result.append(", credits: ");
+		result.append(credits);
 		result.append(')');
 		return result.toString();
 	}

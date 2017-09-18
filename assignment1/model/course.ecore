@@ -70,7 +70,7 @@
         containment="true" eOpposite="#//Studies/student"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation">
-    <eOperations name="completeExam" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eOperations name="completeExam">
       <eParameters name="student" lowerBound="1" eType="#//Studies"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exam" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -155,6 +155,8 @@
         transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exams" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"
         transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="semesterType">
     <eLiterals name="Spring"/>
