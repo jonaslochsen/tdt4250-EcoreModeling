@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Studies#getPastCourses <em>Past Courses</em>}</li>
  *   <li>{@link course.Studies#getStudent <em>Student</em>}</li>
  *   <li>{@link course.Studies#getCurrentCourses <em>Current Courses</em>}</li>
+ *   <li>{@link course.Studies#getExams <em>Exams</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudies()
@@ -94,5 +95,47 @@ public interface Studies extends EObject {
 	 * @generated
 	 */
 	void setCurrentCourses(EList value);
+
+	/**
+	 * Returns the value of the '<em><b>Exams</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exams</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exams</em>' attribute.
+	 * @see #setExams(EList)
+	 * @see course.CoursePackage#getStudies_Exams()
+	 * @model required="true" many="false" transient="true"
+	 * @generated
+	 */
+	EList getExams();
+
+	/**
+	 * Sets the value of the '{@link course.Studies#getExams <em>Exams</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exams</em>' attribute.
+	 * @see #getExams()
+	 * @generated
+	 */
+	void setExams(EList value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model courseInstanceRequired="true"
+	 * @generated
+	 */
+	void signUpForExam(CourseInstance courseInstance);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model courseInstanceRequired="true"
+	 * @generated
+	 */
+	void signOffFromExam(CourseInstance courseInstance);
 
 } // Studies

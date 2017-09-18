@@ -63,6 +63,7 @@ public class StudiesItemProvider
 
 			addPastCoursesPropertyDescriptor(object);
 			addCurrentCoursesPropertyDescriptor(object);
+			addExamsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class StudiesItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Exams feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExamsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Studies_exams_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Studies_exams_feature", "_UI_Studies_type"),
+				 CoursePackage.Literals.STUDIES__EXAMS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Studies.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,6 +174,7 @@ public class StudiesItemProvider
 
 		switch (notification.getFeatureID(Studies.class)) {
 			case CoursePackage.STUDIES__CURRENT_COURSES:
+			case CoursePackage.STUDIES__EXAMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

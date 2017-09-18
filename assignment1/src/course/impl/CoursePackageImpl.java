@@ -28,6 +28,7 @@ import course.util.CourseValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
@@ -611,6 +612,15 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getEvaluation__CompleteExam__Studies() {
+		return evaluationEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOrganisation() {
 		return organisationEClass;
 	}
@@ -845,6 +855,33 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStudies_Exams() {
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getStudies__SignUpForExam__CourseInstance() {
+		return studiesEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getStudies__SignOffFromExam__CourseInstance() {
+		return studiesEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDayOfWeek() {
 		return dayOfWeekEEnum;
 	}
@@ -951,6 +988,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEAttribute(evaluationEClass, EVALUATION__PROJECT);
 		createEAttribute(evaluationEClass, EVALUATION__ASSIGMENTS);
 		createEReference(evaluationEClass, EVALUATION__COURSE_INSTANCE);
+		createEOperation(evaluationEClass, EVALUATION___COMPLETE_EXAM__STUDIES);
 
 		organisationEClass = createEClass(ORGANISATION);
 		createEReference(organisationEClass, ORGANISATION__COURSE_INSTANCE);
@@ -984,6 +1022,9 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(studiesEClass, STUDIES__PAST_COURSES);
 		createEReference(studiesEClass, STUDIES__STUDENT);
 		createEAttribute(studiesEClass, STUDIES__CURRENT_COURSES);
+		createEAttribute(studiesEClass, STUDIES__EXAMS);
+		createEOperation(studiesEClass, STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE);
+		createEOperation(studiesEClass, STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE);
 
 		// Create enums
 		dayOfWeekEEnum = createEEnum(DAY_OF_WEEK);
@@ -1070,6 +1111,9 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEAttribute(getEvaluation_Assigments(), ecorePackage.getEInt(), "assigments", null, 1, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvaluation_CourseInstance(), this.getCourseInstance(), this.getCourseInstance_Evaluation(), "courseInstance", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getEvaluation__CompleteExam__Studies(), ecorePackage.getEDouble(), "completeExam", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getStudies(), "student", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(organisationEClass, Organisation.class, "Organisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOrganisation_CourseInstance(), this.getCourseInstance(), this.getCourseInstance_Organisation(), "courseInstance", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrganisation_Employees(), this.getEmployment(), this.getEmployment_Organisation(), "employees", null, 0, -1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1102,6 +1146,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEReference(getStudies_PastCourses(), this.getCourse(), null, "pastCourses", null, 0, -1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudies_Student(), this.getPerson(), this.getPerson_Studies(), "student", null, 1, 1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudies_CurrentCourses(), ecorePackage.getEEList(), "currentCourses", null, 1, 1, Studies.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudies_Exams(), ecorePackage.getEEList(), "exams", null, 1, 1, Studies.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getStudies__SignUpForExam__CourseInstance(), null, "signUpForExam", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCourseInstance(), "courseInstance", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getStudies__SignOffFromExam__CourseInstance(), null, "signOffFromExam", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCourseInstance(), "courseInstance", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dayOfWeekEEnum, DayOfWeek.class, "DayOfWeek");

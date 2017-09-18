@@ -5,6 +5,7 @@ package course;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -551,13 +552,22 @@ public interface CoursePackage extends EPackage {
 	int EVALUATION_FEATURE_COUNT = 4;
 
 	/**
+	 * The operation id for the '<em>Complete Exam</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION___COMPLETE_EXAM__STUDIES = 0;
+
+	/**
 	 * The number of operations of the '<em>Evaluation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION_OPERATION_COUNT = 0;
+	int EVALUATION_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link course.impl.OrganisationImpl <em>Organisation</em>}' class.
@@ -909,13 +919,40 @@ public interface CoursePackage extends EPackage {
 	int STUDIES__CURRENT_COURSES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Exams</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDIES__EXAMS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Studies</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES_FEATURE_COUNT = 3;
+	int STUDIES_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Sign Up For Exam</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE = 0;
+
+	/**
+	 * The operation id for the '<em>Sign Off From Exam</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE = 1;
 
 	/**
 	 * The number of operations of the '<em>Studies</em>' class.
@@ -924,7 +961,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES_OPERATION_COUNT = 0;
+	int STUDIES_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link course.DayOfWeek <em>Day Of Week</em>}' enum.
@@ -1413,6 +1450,16 @@ public interface CoursePackage extends EPackage {
 	EReference getEvaluation_CourseInstance();
 
 	/**
+	 * Returns the meta object for the '{@link course.Evaluation#completeExam(course.Studies) <em>Complete Exam</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Complete Exam</em>' operation.
+	 * @see course.Evaluation#completeExam(course.Studies)
+	 * @generated
+	 */
+	EOperation getEvaluation__CompleteExam__Studies();
+
+	/**
 	 * Returns the meta object for class '{@link course.Organisation <em>Organisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1690,6 +1737,37 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStudies_CurrentCourses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.Studies#getExams <em>Exams</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exams</em>'.
+	 * @see course.Studies#getExams()
+	 * @see #getStudies()
+	 * @generated
+	 */
+	EAttribute getStudies_Exams();
+
+	/**
+	 * Returns the meta object for the '{@link course.Studies#signUpForExam(course.CourseInstance) <em>Sign Up For Exam</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sign Up For Exam</em>' operation.
+	 * @see course.Studies#signUpForExam(course.CourseInstance)
+	 * @generated
+	 */
+	EOperation getStudies__SignUpForExam__CourseInstance();
+
+	/**
+	 * Returns the meta object for the '{@link course.Studies#signOffFromExam(course.CourseInstance) <em>Sign Off From Exam</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sign Off From Exam</em>' operation.
+	 * @see course.Studies#signOffFromExam(course.CourseInstance)
+	 * @generated
+	 */
+	EOperation getStudies__SignOffFromExam__CourseInstance();
 
 	/**
 	 * Returns the meta object for enum '{@link course.DayOfWeek <em>Day Of Week</em>}'.
@@ -2097,6 +2175,14 @@ public interface CoursePackage extends EPackage {
 		EReference EVALUATION__COURSE_INSTANCE = eINSTANCE.getEvaluation_CourseInstance();
 
 		/**
+		 * The meta object literal for the '<em><b>Complete Exam</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EVALUATION___COMPLETE_EXAM__STUDIES = eINSTANCE.getEvaluation__CompleteExam__Studies();
+
+		/**
 		 * The meta object literal for the '{@link course.impl.OrganisationImpl <em>Organisation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2317,6 +2403,30 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STUDIES__CURRENT_COURSES = eINSTANCE.getStudies_CurrentCourses();
+
+		/**
+		 * The meta object literal for the '<em><b>Exams</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDIES__EXAMS = eINSTANCE.getStudies_Exams();
+
+		/**
+		 * The meta object literal for the '<em><b>Sign Up For Exam</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE = eINSTANCE.getStudies__SignUpForExam__CourseInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Sign Off From Exam</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE = eINSTANCE.getStudies__SignOffFromExam__CourseInstance();
 
 		/**
 		 * The meta object literal for the '{@link course.DayOfWeek <em>Day Of Week</em>}' enum.

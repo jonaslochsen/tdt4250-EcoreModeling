@@ -19,6 +19,13 @@ import junit.textui.TestRunner;
  *   <li>{@link course.Studies#getCurrentCourses() <em>Current Courses</em>}</li>
  * </ul>
  * </p>
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link course.Studies#signUpForExam(course.CourseInstance) <em>Sign Up For Exam</em>}</li>
+ *   <li>{@link course.Studies#signOffFromExam(course.CourseInstance) <em>Sign Off From Exam</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class StudiesTest extends TestCase {
@@ -114,6 +121,32 @@ public class StudiesTest extends TestCase {
 	 */
 	public void testSetCurrentCourses() {
 		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link course.Studies#signUpForExam(course.CourseInstance) <em>Sign Up For Exam</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.Studies#signUpForExam(course.CourseInstance)
+	 * @generated
+	 */
+	public void testSignUpForExam__CourseInstance() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link course.Studies#signOffFromExam(course.CourseInstance) <em>Sign Off From Exam</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.Studies#signOffFromExam(course.CourseInstance)
+	 * @generated
+	 */
+	public void testSignOffFromExam__CourseInstance() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

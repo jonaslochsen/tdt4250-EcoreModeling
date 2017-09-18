@@ -70,6 +70,9 @@
         containment="true" eOpposite="#//Studies/student"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation">
+    <eOperations name="completeExam" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="student" lowerBound="1" eType="#//Studies"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exam" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="project" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -137,6 +140,12 @@
         eType="#//Organisation" eOpposite="#//Organisation/employees"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Studies">
+    <eOperations name="signUpForExam">
+      <eParameters name="courseInstance" lowerBound="1" eType="#//CourseInstance"/>
+    </eOperations>
+    <eOperations name="signOffFromExam">
+      <eParameters name="courseInstance" lowerBound="1" eType="#//CourseInstance"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pastCourses" upperBound="-1"
         eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="student" lowerBound="1"
@@ -144,6 +153,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentCourses" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList" volatile="true"
         transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exams" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"
+        transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="semesterType">
     <eLiterals name="Spring"/>

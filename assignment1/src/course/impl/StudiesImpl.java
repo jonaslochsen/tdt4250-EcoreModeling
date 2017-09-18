@@ -10,6 +10,7 @@ import course.Person;
 import course.Studies;
 import course.TypeOfEmployment;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link course.impl.StudiesImpl#getPastCourses <em>Past Courses</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getStudent <em>Student</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getCurrentCourses <em>Current Courses</em>}</li>
+ *   <li>{@link course.impl.StudiesImpl#getExams <em>Exams</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +53,16 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * @ordered
 	 */
 	protected EList<Course> pastCourses;
+
+	/**
+	 * The cached value of the '{@link #getExams() <em>Exams</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExams()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList exams;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,6 +170,49 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList getExams() {
+		return exams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExams(EList newExams) {
+		EList oldExams = exams;
+		exams = newExams;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDIES__EXAMS, oldExams, exams));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void signUpForExam(CourseInstance courseInstance) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void signOffFromExam(CourseInstance courseInstance) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -211,6 +266,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return getStudent();
 			case CoursePackage.STUDIES__CURRENT_COURSES:
 				return getCurrentCourses();
+			case CoursePackage.STUDIES__EXAMS:
+				return getExams();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -234,6 +291,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 			case CoursePackage.STUDIES__CURRENT_COURSES:
 				setCurrentCourses((EList)newValue);
 				return;
+			case CoursePackage.STUDIES__EXAMS:
+				setExams((EList)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -255,6 +315,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 			case CoursePackage.STUDIES__CURRENT_COURSES:
 				setCurrentCourses((EList)null);
 				return;
+			case CoursePackage.STUDIES__EXAMS:
+				setExams((EList)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -273,8 +336,44 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return getStudent() != null;
 			case CoursePackage.STUDIES__CURRENT_COURSES:
 				return getCurrentCourses() != null;
+			case CoursePackage.STUDIES__EXAMS:
+				return exams != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CoursePackage.STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE:
+				signUpForExam((CourseInstance)arguments.get(0));
+				return null;
+			case CoursePackage.STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE:
+				signOffFromExam((CourseInstance)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (exams: ");
+		result.append(exams);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StudiesImpl

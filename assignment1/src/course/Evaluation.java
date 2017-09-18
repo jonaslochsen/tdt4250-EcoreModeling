@@ -130,4 +130,12 @@ public interface Evaluation extends EObject {
 	 */
 	void setCourseInstance(CourseInstance value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model studentRequired="true"
+	 * @generated
+	 */
+	double completeExam(Studies student);
+
 } // Evaluation
