@@ -16,9 +16,10 @@
           name="Advanced Software Design"
           content="Generic techniques for modeling, design and implementation of modular software, focussing on industrial techniques and domains."
           credits="7.5"
-          recommendedPreCond="//@faculties.0/@departments.0/@courses.1 //@faculties.0/@departments.0/@courses.2 //@faculties.0/@departments.0/@courses.3 //@faculties.0/@departments.0/@courses.4"
-          studyPrograms="//@faculties.0/@departments.0/@studyPrograms.0">
-        <courseInstances>
+          studyPrograms="//@faculties.0/@departments.0/@studyPrograms.0"
+          preRequisities="//@faculties.0/@departments.0/@courses.1 //@faculties.0/@departments.0/@courses.2 //@faculties.0/@departments.0/@courses.4">
+        <courseInstances
+            semester="Fall">
           <organisation>
             <employees
                 employee="//@people.0">
@@ -60,7 +61,43 @@
       <courses
           code="TDT4100"
           name="Object-oriented programming"
-          credits="7.5"/>
+          credits="7.5"
+          studyPrograms="//@faculties.0/@departments.0/@studyPrograms.0">
+        <courseInstances
+            semester="Fall">
+          <organisation>
+            <employees
+                employee="//@people.0">
+              <employment>Lecturer</employment>
+              <employment>CourseCoordinator</employment>
+            </employees>
+          </organisation>
+          <evaluation
+              exam="100"/>
+          <courseWork
+              lectureHours="4"
+              labHours="7"/>
+          <timeTable>
+            <timetableEntry
+                day="Tuesday"
+                room="F1"
+                time="14:15-16:00"
+                studyProgram="//@faculties.0/@departments.0/@studyPrograms.0"
+                type="Lecture"/>
+            <timetableEntry
+                day="Wednesday"
+                room="F1"
+                time="10.15-12:00"
+                studyProgram="//@faculties.0/@departments.0/@studyPrograms.0"/>
+            <timetableEntry
+                day="Friday"
+                room="F1"
+                time="12:15-14:00"
+                studyProgram="//@faculties.0/@departments.0/@studyPrograms.0"
+                type="Lecture"/>
+          </timeTable>
+        </courseInstances>
+      </courses>
       <courses
           code="TDT4140"
           name="Software Engineering"
@@ -89,7 +126,7 @@
     </departments>
   </faculties>
   <people name="Hallvard Trætteberg"
-      employment="//@faculties.0/@departments.0/@courses.0/@courseInstances.0/@organisation/@employees.0"/>
+      employment="//@faculties.0/@departments.0/@courses.0/@courseInstances.0/@organisation/@employees.0 //@faculties.0/@departments.0/@courses.1/@courseInstances.0/@organisation/@employees.0"/>
   <people name="Bendik Tiltnes"
       employment="//@faculties.0/@departments.0/@courses.0/@courseInstances.0/@organisation/@employees.1"/>
 </course:University>

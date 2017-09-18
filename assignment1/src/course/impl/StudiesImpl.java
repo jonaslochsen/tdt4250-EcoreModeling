@@ -6,12 +6,10 @@ import course.Course;
 import course.CourseInstance;
 import course.CoursePackage;
 import course.Employment;
-import course.Organisation;
 import course.Person;
 import course.Studies;
 import course.TypeOfEmployment;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -234,7 +232,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				setStudent((Person)newValue);
 				return;
 			case CoursePackage.STUDIES__CURRENT_COURSES:
-				setCurrentCourses((EList)newValue);
+				setCurrentCourses((EList<CourseInstance>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,7 +253,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				setStudent((Person)null);
 				return;
 			case CoursePackage.STUDIES__CURRENT_COURSES:
-				setCurrentCourses((EList)null);
+				setCurrentCourses((EList<CourseInstance>)null);
 				return;
 		}
 		super.eUnset(featureID);

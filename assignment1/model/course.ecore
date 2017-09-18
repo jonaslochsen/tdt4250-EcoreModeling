@@ -24,16 +24,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredPreCond" upperBound="-1"
-        eType="#//Course"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recommendedPreCond" upperBound="-1"
-        eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="studyPrograms" upperBound="-1"
         eType="#//StudyProgram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courseInstances" upperBound="-1"
         eType="#//CourseInstance" containment="true" eOpposite="#//CourseInstance/course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="department" lowerBound="1"
         eType="#//Department" eOpposite="#//Department/courses"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preRequisities" upperBound="-1"
+        eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependentCourses" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CourseInstance">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -49,6 +49,8 @@
         eType="#//CourseWork" containment="true" eOpposite="#//CourseWork/courseInstance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="timeTable" lowerBound="1"
         eType="#//Timetable" containment="true" eOpposite="#//Timetable/courseInstance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="semester" lowerBound="1"
+        eType="#//semesterType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Department">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -139,5 +141,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentCourses" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList" volatile="true"
         transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="semesterType">
+    <eLiterals name="Spring"/>
+    <eLiterals name="Fall" value="1"/>
   </eClassifiers>
 </ecore:EPackage>
