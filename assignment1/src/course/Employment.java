@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see course.CoursePackage#getEmployment()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='cannotBeStudentAndTAInSameCourse'"
  * @generated
  */
 public interface Employment extends EObject {

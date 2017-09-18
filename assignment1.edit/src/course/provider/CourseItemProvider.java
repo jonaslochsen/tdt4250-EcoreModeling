@@ -67,10 +67,9 @@ public class CourseItemProvider
 			addNamePropertyDescriptor(object);
 			addContentPropertyDescriptor(object);
 			addCreditsPropertyDescriptor(object);
-			addRequiredPreCondPropertyDescriptor(object);
-			addRecommendedPreCondPropertyDescriptor(object);
-			addDependencyPropertyDescriptor(object);
 			addStudyProgramsPropertyDescriptor(object);
+			addPreRequisitiesPropertyDescriptor(object);
+			addDependentCoursesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -164,72 +163,6 @@ public class CourseItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Required Pre Cond feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredPreCondPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Course_requiredPreCond_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Course_requiredPreCond_feature", "_UI_Course_type"),
-				 CoursePackage.Literals.COURSE__REQUIRED_PRE_COND,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Recommended Pre Cond feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRecommendedPreCondPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Course_recommendedPreCond_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Course_recommendedPreCond_feature", "_UI_Course_type"),
-				 CoursePackage.Literals.COURSE__RECOMMENDED_PRE_COND,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dependency feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDependencyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Course_dependency_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Course_dependency_feature", "_UI_Course_type"),
-				 CoursePackage.Literals.COURSE__DEPENDENCY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Study Programs feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,6 +180,50 @@ public class CourseItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pre Requisities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPreRequisitiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Course_preRequisities_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Course_preRequisities_feature", "_UI_Course_type"),
+				 CoursePackage.Literals.COURSE__PRE_REQUISITIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependent Courses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependentCoursesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Course_dependentCourses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Course_dependentCourses_feature", "_UI_Course_type"),
+				 CoursePackage.Literals.COURSE__DEPENDENT_COURSES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -323,6 +300,7 @@ public class CourseItemProvider
 			case CoursePackage.COURSE__NAME:
 			case CoursePackage.COURSE__CONTENT:
 			case CoursePackage.COURSE__CREDITS:
+			case CoursePackage.COURSE__DEPENDENT_COURSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CoursePackage.COURSE__COURSE_INSTANCES:

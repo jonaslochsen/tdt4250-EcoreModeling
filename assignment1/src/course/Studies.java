@@ -83,7 +83,7 @@ public interface Studies extends EObject {
 	 * @model required="true" many="false" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
-	EList<CourseInstance> getCurrentCourses();
+	EList getCurrentCourses();
 
 	/**
 	 * Sets the value of the '{@link course.Studies#getCurrentCourses <em>Current Courses</em>}' attribute.
@@ -93,6 +93,6 @@ public interface Studies extends EObject {
 	 * @see #getCurrentCourses()
 	 * @generated
 	 */
-	void setCurrentCourses(EList<CourseInstance> value);
+	void setCurrentCourses(EList value);
 
 } // Studies

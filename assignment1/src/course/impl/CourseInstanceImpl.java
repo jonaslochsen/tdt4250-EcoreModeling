@@ -10,6 +10,7 @@ import course.Evaluation;
 import course.Organisation;
 import course.Timetable;
 
+import course.semesterType;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link course.impl.CourseInstanceImpl#getEvaluation <em>Evaluation</em>}</li>
  *   <li>{@link course.impl.CourseInstanceImpl#getCourseWork <em>Course Work</em>}</li>
  *   <li>{@link course.impl.CourseInstanceImpl#getTimeTable <em>Time Table</em>}</li>
+ *   <li>{@link course.impl.CourseInstanceImpl#getSemester <em>Semester</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +80,26 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Timetable timeTable;
+
+	/**
+	 * The default value of the '{@link #getSemester() <em>Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSemester()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final semesterType SEMESTER_EDEFAULT = semesterType.SPRING;
+
+	/**
+	 * The cached value of the '{@link #getSemester() <em>Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSemester()
+	 * @generated
+	 * @ordered
+	 */
+	protected semesterType semester = SEMESTER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,6 +338,27 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public semesterType getSemester() {
+		return semester;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSemester(semesterType newSemester) {
+		semesterType oldSemester = semester;
+		semester = newSemester == null ? SEMESTER_EDEFAULT : newSemester;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE_INSTANCE__SEMESTER, oldSemester, semester));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -397,6 +440,8 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				return getCourseWork();
 			case CoursePackage.COURSE_INSTANCE__TIME_TABLE:
 				return getTimeTable();
+			case CoursePackage.COURSE_INSTANCE__SEMESTER:
+				return getSemester();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -423,6 +468,9 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case CoursePackage.COURSE_INSTANCE__TIME_TABLE:
 				setTimeTable((Timetable)newValue);
+				return;
+			case CoursePackage.COURSE_INSTANCE__SEMESTER:
+				setSemester((semesterType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -451,6 +499,9 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 			case CoursePackage.COURSE_INSTANCE__TIME_TABLE:
 				setTimeTable((Timetable)null);
 				return;
+			case CoursePackage.COURSE_INSTANCE__SEMESTER:
+				setSemester(SEMESTER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -473,8 +524,26 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				return courseWork != null;
 			case CoursePackage.COURSE_INSTANCE__TIME_TABLE:
 				return timeTable != null;
+			case CoursePackage.COURSE_INSTANCE__SEMESTER:
+				return semester != SEMESTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (semester: ");
+		result.append(semester);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CourseInstanceImpl

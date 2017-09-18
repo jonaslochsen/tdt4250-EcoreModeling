@@ -7,6 +7,7 @@ import course.CourseFactory;
 import course.CourseInstance;
 import course.CoursePackage;
 
+import course.semesterType;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,12 +18,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -61,8 +64,31 @@ public class CourseInstanceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSemesterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Semester feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSemesterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CourseInstance_semester_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CourseInstance_semester_feature", "_UI_CourseInstance_type"),
+				 CoursePackage.Literals.COURSE_INSTANCE__SEMESTER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -117,7 +143,11 @@ public class CourseInstanceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CourseInstance_type");
+		semesterType labelValue = ((CourseInstance)object).getSemester();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CourseInstance_type") :
+			getString("_UI_CourseInstance_type") + " " + label;
 	}
 	
 
@@ -133,6 +163,9 @@ public class CourseInstanceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CourseInstance.class)) {
+			case CoursePackage.COURSE_INSTANCE__SEMESTER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case CoursePackage.COURSE_INSTANCE__ORGANISATION:
 			case CoursePackage.COURSE_INSTANCE__EVALUATION:
 			case CoursePackage.COURSE_INSTANCE__COURSE_WORK:

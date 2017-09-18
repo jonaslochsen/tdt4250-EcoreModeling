@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link course.University#getName <em>Name</em>}</li>
  *   <li>{@link course.University#getFaculties <em>Faculties</em>}</li>
+ *   <li>{@link course.University#getPeople <em>People</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getUniversity()
@@ -67,5 +68,21 @@ public interface University extends EObject {
 	 * @generated
 	 */
 	EList<Faculty> getFaculties();
+
+	/**
+	 * Returns the value of the '<em><b>People</b></em>' containment reference list.
+	 * The list contents are of type {@link course.Person}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>People</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>People</em>' containment reference list.
+	 * @see course.CoursePackage#getUniversity_People()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Person> getPeople();
 
 } // University

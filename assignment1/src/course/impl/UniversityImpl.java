@@ -4,6 +4,7 @@ package course.impl;
 
 import course.CoursePackage;
 import course.Faculty;
+import course.Person;
 import course.University;
 
 import java.util.Collection;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link course.impl.UniversityImpl#getName <em>Name</em>}</li>
  *   <li>{@link course.impl.UniversityImpl#getFaculties <em>Faculties</em>}</li>
+ *   <li>{@link course.impl.UniversityImpl#getPeople <em>People</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +69,16 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 	 * @ordered
 	 */
 	protected EList<Faculty> faculties;
+
+	/**
+	 * The cached value of the '{@link #getPeople() <em>People</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeople()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Person> people;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +137,18 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Person> getPeople() {
+		if (people == null) {
+			people = new EObjectContainmentEList<Person>(Person.class, this, CoursePackage.UNIVERSITY__PEOPLE);
+		}
+		return people;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -144,6 +169,8 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 		switch (featureID) {
 			case CoursePackage.UNIVERSITY__FACULTIES:
 				return ((InternalEList<?>)getFaculties()).basicRemove(otherEnd, msgs);
+			case CoursePackage.UNIVERSITY__PEOPLE:
+				return ((InternalEList<?>)getPeople()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -160,6 +187,8 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 				return getName();
 			case CoursePackage.UNIVERSITY__FACULTIES:
 				return getFaculties();
+			case CoursePackage.UNIVERSITY__PEOPLE:
+				return getPeople();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +209,10 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 				getFaculties().clear();
 				getFaculties().addAll((Collection<? extends Faculty>)newValue);
 				return;
+			case CoursePackage.UNIVERSITY__PEOPLE:
+				getPeople().clear();
+				getPeople().addAll((Collection<? extends Person>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,6 +231,9 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 			case CoursePackage.UNIVERSITY__FACULTIES:
 				getFaculties().clear();
 				return;
+			case CoursePackage.UNIVERSITY__PEOPLE:
+				getPeople().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,6 +250,8 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoursePackage.UNIVERSITY__FACULTIES:
 				return faculties != null && !faculties.isEmpty();
+			case CoursePackage.UNIVERSITY__PEOPLE:
+				return people != null && !people.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

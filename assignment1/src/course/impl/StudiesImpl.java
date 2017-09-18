@@ -147,7 +147,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCurrentCourses(EList<CourseInstance> newCurrentCourses) {
+	public void setCurrentCourses(EList newCurrentCourses) {
 		// TODO: implement this method to set the 'Current Courses' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -232,7 +232,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				setStudent((Person)newValue);
 				return;
 			case CoursePackage.STUDIES__CURRENT_COURSES:
-				setCurrentCourses((EList<CourseInstance>)newValue);
+				setCurrentCourses((EList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,7 +253,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				setStudent((Person)null);
 				return;
 			case CoursePackage.STUDIES__CURRENT_COURSES:
-				setCurrentCourses((EList<CourseInstance>)null);
+				setCurrentCourses((EList)null);
 				return;
 		}
 		super.eUnset(featureID);

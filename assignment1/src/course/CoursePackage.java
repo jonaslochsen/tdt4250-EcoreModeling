@@ -86,13 +86,22 @@ public interface CoursePackage extends EPackage {
 	int UNIVERSITY__FACULTIES = 1;
 
 	/**
+	 * The feature id for the '<em><b>People</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__PEOPLE = 2;
+
+	/**
 	 * The number of structural features of the '<em>University</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIVERSITY_FEATURE_COUNT = 2;
+	int UNIVERSITY_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>University</em>' class.
@@ -214,40 +223,13 @@ public interface CoursePackage extends EPackage {
 	int COURSE__CREDITS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Required Pre Cond</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE__REQUIRED_PRE_COND = 4;
-
-	/**
-	 * The feature id for the '<em><b>Recommended Pre Cond</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE__RECOMMENDED_PRE_COND = 5;
-
-	/**
-	 * The feature id for the '<em><b>Dependency</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE__DEPENDENCY = 6;
-
-	/**
 	 * The feature id for the '<em><b>Study Programs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__STUDY_PROGRAMS = 7;
+	int COURSE__STUDY_PROGRAMS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Course Instances</b></em>' containment reference list.
@@ -256,7 +238,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__COURSE_INSTANCES = 8;
+	int COURSE__COURSE_INSTANCES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Department</b></em>' container reference.
@@ -265,7 +247,25 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__DEPARTMENT = 9;
+	int COURSE__DEPARTMENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Pre Requisities</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE__PRE_REQUISITIES = 7;
+
+	/**
+	 * The feature id for the '<em><b>Dependent Courses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE__DEPENDENT_COURSES = 8;
 
 	/**
 	 * The number of structural features of the '<em>Course</em>' class.
@@ -274,7 +274,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_FEATURE_COUNT = 10;
+	int COURSE_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Course</em>' class.
@@ -341,13 +341,22 @@ public interface CoursePackage extends EPackage {
 	int COURSE_INSTANCE__TIME_TABLE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Semester</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_INSTANCE__SEMESTER = 5;
+
+	/**
 	 * The number of structural features of the '<em>Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_INSTANCE_FEATURE_COUNT = 5;
+	int COURSE_INSTANCE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Instance</em>' class.
@@ -949,6 +958,17 @@ public interface CoursePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link course.semesterType <em>semester Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.semesterType
+	 * @see course.impl.CoursePackageImpl#getsemesterType()
+	 * @generated
+	 */
+	int SEMESTER_TYPE = 17;
+
+
+	/**
 	 * Returns the meta object for class '{@link course.University <em>University</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -979,6 +999,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUniversity_Faculties();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.University#getPeople <em>People</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>People</em>'.
+	 * @see course.University#getPeople()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EReference getUniversity_People();
 
 	/**
 	 * Returns the meta object for class '{@link course.Faculty <em>Faculty</em>}'.
@@ -1089,39 +1120,6 @@ public interface CoursePackage extends EPackage {
 	EAttribute getCourse_Credits();
 
 	/**
-	 * Returns the meta object for the reference list '{@link course.Course#getRequiredPreCond <em>Required Pre Cond</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Pre Cond</em>'.
-	 * @see course.Course#getRequiredPreCond()
-	 * @see #getCourse()
-	 * @generated
-	 */
-	EReference getCourse_RequiredPreCond();
-
-	/**
-	 * Returns the meta object for the reference list '{@link course.Course#getRecommendedPreCond <em>Recommended Pre Cond</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Recommended Pre Cond</em>'.
-	 * @see course.Course#getRecommendedPreCond()
-	 * @see #getCourse()
-	 * @generated
-	 */
-	EReference getCourse_RecommendedPreCond();
-
-	/**
-	 * Returns the meta object for the reference list '{@link course.Course#getDependency <em>Dependency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency</em>'.
-	 * @see course.Course#getDependency()
-	 * @see #getCourse()
-	 * @generated
-	 */
-	EReference getCourse_Dependency();
-
-	/**
 	 * Returns the meta object for the reference list '{@link course.Course#getStudyPrograms <em>Study Programs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1153,6 +1151,28 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCourse_Department();
+
+	/**
+	 * Returns the meta object for the reference list '{@link course.Course#getPreRequisities <em>Pre Requisities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pre Requisities</em>'.
+	 * @see course.Course#getPreRequisities()
+	 * @see #getCourse()
+	 * @generated
+	 */
+	EReference getCourse_PreRequisities();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.Course#getDependentCourses <em>Dependent Courses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dependent Courses</em>'.
+	 * @see course.Course#getDependentCourses()
+	 * @see #getCourse()
+	 * @generated
+	 */
+	EAttribute getCourse_DependentCourses();
 
 	/**
 	 * Returns the meta object for class '{@link course.CourseInstance <em>Instance</em>}'.
@@ -1218,6 +1238,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCourseInstance_TimeTable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.CourseInstance#getSemester <em>Semester</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Semester</em>'.
+	 * @see course.CourseInstance#getSemester()
+	 * @see #getCourseInstance()
+	 * @generated
+	 */
+	EAttribute getCourseInstance_Semester();
 
 	/**
 	 * Returns the meta object for class '{@link course.Department <em>Department</em>}'.
@@ -1691,6 +1722,16 @@ public interface CoursePackage extends EPackage {
 	EEnum getTypeOfEmployment();
 
 	/**
+	 * Returns the meta object for enum '{@link course.semesterType <em>semester Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>semester Type</em>'.
+	 * @see course.semesterType
+	 * @generated
+	 */
+	EEnum getsemesterType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1738,6 +1779,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference UNIVERSITY__FACULTIES = eINSTANCE.getUniversity_Faculties();
+
+		/**
+		 * The meta object literal for the '<em><b>People</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIVERSITY__PEOPLE = eINSTANCE.getUniversity_People();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.FacultyImpl <em>Faculty</em>}' class.
@@ -1824,30 +1873,6 @@ public interface CoursePackage extends EPackage {
 		EAttribute COURSE__CREDITS = eINSTANCE.getCourse_Credits();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Pre Cond</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COURSE__REQUIRED_PRE_COND = eINSTANCE.getCourse_RequiredPreCond();
-
-		/**
-		 * The meta object literal for the '<em><b>Recommended Pre Cond</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COURSE__RECOMMENDED_PRE_COND = eINSTANCE.getCourse_RecommendedPreCond();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependency</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COURSE__DEPENDENCY = eINSTANCE.getCourse_Dependency();
-
-		/**
 		 * The meta object literal for the '<em><b>Study Programs</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1870,6 +1895,22 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COURSE__DEPARTMENT = eINSTANCE.getCourse_Department();
+
+		/**
+		 * The meta object literal for the '<em><b>Pre Requisities</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE__PRE_REQUISITIES = eINSTANCE.getCourse_PreRequisities();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependent Courses</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COURSE__DEPENDENT_COURSES = eINSTANCE.getCourse_DependentCourses();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.CourseInstanceImpl <em>Instance</em>}' class.
@@ -1920,6 +1961,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COURSE_INSTANCE__TIME_TABLE = eINSTANCE.getCourseInstance_TimeTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Semester</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COURSE_INSTANCE__SEMESTER = eINSTANCE.getCourseInstance_Semester();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.DepartmentImpl <em>Department</em>}' class.
@@ -2298,6 +2347,16 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TYPE_OF_EMPLOYMENT = eINSTANCE.getTypeOfEmployment();
+
+		/**
+		 * The meta object literal for the '{@link course.semesterType <em>semester Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.semesterType
+		 * @see course.impl.CoursePackageImpl#getsemesterType()
+		 * @generated
+		 */
+		EEnum SEMESTER_TYPE = eINSTANCE.getsemesterType();
 
 	}
 

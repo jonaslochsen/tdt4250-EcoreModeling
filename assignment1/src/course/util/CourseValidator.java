@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EPackage;
@@ -120,6 +121,8 @@ public class CourseValidator extends EObjectValidator {
 				return validateTypeOfInstruction((TypeOfInstruction)value, diagnostics, context);
 			case CoursePackage.TYPE_OF_EMPLOYMENT:
 				return validateTypeOfEmployment((TypeOfEmployment)value, diagnostics, context);
+			case CoursePackage.SEMESTER_TYPE:
+				return validatesemesterType((semesterType)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -175,28 +178,28 @@ public class CourseValidator extends EObjectValidator {
 	 * Validates the scheduledHours constraint of '<em>Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateCourseInstance_scheduledHours(CourseInstance courseInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "scheduledHours", getObjectLabel(courseInstance, context) },
-						 new Object[] { courseInstance },
-						 context));
-			}
-			return false;
+		int totalCourseHours = courseInstance.getCourseWork().getLabHours() + courseInstance.getCourseWork().getLectureHours();
+		
+		int scheduledHours = 0;
+		
+		EList<TimetableEntry> timeTableEntries = courseInstance.getTimeTable().getTimetableEntry();
+		
+		for (TimetableEntry timetableEntry : timeTableEntries) {
+			String lecture = timetableEntry.getTime();
+			String[] splitLectureString = lecture.split("-");
+			scheduledHours += Integer.parseInt(splitLectureString[1].substring(0, 2)) - Integer.parseInt(splitLectureString[0].substring(0, 2));
 		}
-		return true;
+		
+		if (totalCourseHours == scheduledHours)
+			return true;
+		return false;
 	}
 
 	/**
@@ -277,7 +280,34 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEmployment(Employment employment, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(employment, diagnostics, context);
+		if (!validate_NoCircularContainment(employment, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(employment, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEmployment_cannotBeStudentAndTAInSameCourse(employment, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the cannotBeStudentAndTAInSameCourse constraint of '<em>Employment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateEmployment_cannotBeStudentAndTAInSameCourse(Employment employment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (employment.getEmployment().contains(TypeOfEmployment.TA) && employment.getEmployment().contains(TypeOfEmployment.STUDENT)) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -313,6 +343,15 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTypeOfEmployment(TypeOfEmployment typeOfEmployment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatesemesterType(semesterType semesterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

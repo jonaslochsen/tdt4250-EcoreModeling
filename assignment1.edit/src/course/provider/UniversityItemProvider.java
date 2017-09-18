@@ -103,6 +103,7 @@ public class UniversityItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CoursePackage.Literals.UNIVERSITY__FACULTIES);
+			childrenFeatures.add(CoursePackage.Literals.UNIVERSITY__PEOPLE);
 		}
 		return childrenFeatures;
 	}
@@ -162,6 +163,7 @@ public class UniversityItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CoursePackage.UNIVERSITY__FACULTIES:
+			case CoursePackage.UNIVERSITY__PEOPLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,6 +185,11 @@ public class UniversityItemProvider
 			(createChildParameter
 				(CoursePackage.Literals.UNIVERSITY__FACULTIES,
 				 CourseFactory.eINSTANCE.createFaculty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CoursePackage.Literals.UNIVERSITY__PEOPLE,
+				 CourseFactory.eINSTANCE.createPerson()));
 	}
 
 	/**

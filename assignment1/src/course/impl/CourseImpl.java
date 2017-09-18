@@ -38,12 +38,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course.impl.CourseImpl#getName <em>Name</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getContent <em>Content</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getCredits <em>Credits</em>}</li>
- *   <li>{@link course.impl.CourseImpl#getRequiredPreCond <em>Required Pre Cond</em>}</li>
- *   <li>{@link course.impl.CourseImpl#getRecommendedPreCond <em>Recommended Pre Cond</em>}</li>
- *   <li>{@link course.impl.CourseImpl#getDependency <em>Dependency</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getStudyPrograms <em>Study Programs</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getCourseInstances <em>Course Instances</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getDepartment <em>Department</em>}</li>
+ *   <li>{@link course.impl.CourseImpl#getPreRequisities <em>Pre Requisities</em>}</li>
+ *   <li>{@link course.impl.CourseImpl#getDependentCourses <em>Dependent Courses</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,36 +129,6 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	protected double credits = CREDITS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRequiredPreCond() <em>Required Pre Cond</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequiredPreCond()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> requiredPreCond;
-
-	/**
-	 * The cached value of the '{@link #getRecommendedPreCond() <em>Recommended Pre Cond</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecommendedPreCond()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> recommendedPreCond;
-
-	/**
-	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependency()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> dependency;
-
-	/**
 	 * The cached value of the '{@link #getStudyPrograms() <em>Study Programs</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +147,26 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @ordered
 	 */
 	protected EList<CourseInstance> courseInstances;
+
+	/**
+	 * The cached value of the '{@link #getPreRequisities() <em>Pre Requisities</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreRequisities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Course> preRequisities;
+
+	/**
+	 * The cached value of the '{@link #getDependentCourses() <em>Dependent Courses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependentCourses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList dependentCourses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,42 +276,6 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Course> getRequiredPreCond() {
-		if (requiredPreCond == null) {
-			requiredPreCond = new EObjectResolvingEList<Course>(Course.class, this, CoursePackage.COURSE__REQUIRED_PRE_COND);
-		}
-		return requiredPreCond;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Course> getRecommendedPreCond() {
-		if (recommendedPreCond == null) {
-			recommendedPreCond = new EObjectResolvingEList<Course>(Course.class, this, CoursePackage.COURSE__RECOMMENDED_PRE_COND);
-		}
-		return recommendedPreCond;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Course> getDependency() {
-		if (dependency == null) {
-			dependency = new EObjectResolvingEList<Course>(Course.class, this, CoursePackage.COURSE__DEPENDENCY);
-		}
-		return dependency;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<StudyProgram> getStudyPrograms() {
 		if (studyPrograms == null) {
 			studyPrograms = new EObjectResolvingEList<StudyProgram>(StudyProgram.class, this, CoursePackage.COURSE__STUDY_PROGRAMS);
@@ -381,6 +334,39 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE__DEPARTMENT, newDepartment, newDepartment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Course> getPreRequisities() {
+		if (preRequisities == null) {
+			preRequisities = new EObjectResolvingEList<Course>(Course.class, this, CoursePackage.COURSE__PRE_REQUISITIES);
+		}
+		return preRequisities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList getDependentCourses() {
+		return dependentCourses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDependentCourses(EList newDependentCourses) {
+		EList oldDependentCourses = dependentCourses;
+		dependentCourses = newDependentCourses;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE__DEPENDENT_COURSES, oldDependentCourses, dependentCourses));
 	}
 
 	/**
@@ -448,18 +434,16 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getContent();
 			case CoursePackage.COURSE__CREDITS:
 				return getCredits();
-			case CoursePackage.COURSE__REQUIRED_PRE_COND:
-				return getRequiredPreCond();
-			case CoursePackage.COURSE__RECOMMENDED_PRE_COND:
-				return getRecommendedPreCond();
-			case CoursePackage.COURSE__DEPENDENCY:
-				return getDependency();
 			case CoursePackage.COURSE__STUDY_PROGRAMS:
 				return getStudyPrograms();
 			case CoursePackage.COURSE__COURSE_INSTANCES:
 				return getCourseInstances();
 			case CoursePackage.COURSE__DEPARTMENT:
 				return getDepartment();
+			case CoursePackage.COURSE__PRE_REQUISITIES:
+				return getPreRequisities();
+			case CoursePackage.COURSE__DEPENDENT_COURSES:
+				return getDependentCourses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -485,18 +469,6 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case CoursePackage.COURSE__CREDITS:
 				setCredits((Double)newValue);
 				return;
-			case CoursePackage.COURSE__REQUIRED_PRE_COND:
-				getRequiredPreCond().clear();
-				getRequiredPreCond().addAll((Collection<? extends Course>)newValue);
-				return;
-			case CoursePackage.COURSE__RECOMMENDED_PRE_COND:
-				getRecommendedPreCond().clear();
-				getRecommendedPreCond().addAll((Collection<? extends Course>)newValue);
-				return;
-			case CoursePackage.COURSE__DEPENDENCY:
-				getDependency().clear();
-				getDependency().addAll((Collection<? extends Course>)newValue);
-				return;
 			case CoursePackage.COURSE__STUDY_PROGRAMS:
 				getStudyPrograms().clear();
 				getStudyPrograms().addAll((Collection<? extends StudyProgram>)newValue);
@@ -507,6 +479,13 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return;
 			case CoursePackage.COURSE__DEPARTMENT:
 				setDepartment((Department)newValue);
+				return;
+			case CoursePackage.COURSE__PRE_REQUISITIES:
+				getPreRequisities().clear();
+				getPreRequisities().addAll((Collection<? extends Course>)newValue);
+				return;
+			case CoursePackage.COURSE__DEPENDENT_COURSES:
+				setDependentCourses((EList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -532,15 +511,6 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case CoursePackage.COURSE__CREDITS:
 				setCredits(CREDITS_EDEFAULT);
 				return;
-			case CoursePackage.COURSE__REQUIRED_PRE_COND:
-				getRequiredPreCond().clear();
-				return;
-			case CoursePackage.COURSE__RECOMMENDED_PRE_COND:
-				getRecommendedPreCond().clear();
-				return;
-			case CoursePackage.COURSE__DEPENDENCY:
-				getDependency().clear();
-				return;
 			case CoursePackage.COURSE__STUDY_PROGRAMS:
 				getStudyPrograms().clear();
 				return;
@@ -549,6 +519,12 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return;
 			case CoursePackage.COURSE__DEPARTMENT:
 				setDepartment((Department)null);
+				return;
+			case CoursePackage.COURSE__PRE_REQUISITIES:
+				getPreRequisities().clear();
+				return;
+			case CoursePackage.COURSE__DEPENDENT_COURSES:
+				setDependentCourses((EList)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -570,18 +546,16 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
 			case CoursePackage.COURSE__CREDITS:
 				return credits != CREDITS_EDEFAULT;
-			case CoursePackage.COURSE__REQUIRED_PRE_COND:
-				return requiredPreCond != null && !requiredPreCond.isEmpty();
-			case CoursePackage.COURSE__RECOMMENDED_PRE_COND:
-				return recommendedPreCond != null && !recommendedPreCond.isEmpty();
-			case CoursePackage.COURSE__DEPENDENCY:
-				return dependency != null && !dependency.isEmpty();
 			case CoursePackage.COURSE__STUDY_PROGRAMS:
 				return studyPrograms != null && !studyPrograms.isEmpty();
 			case CoursePackage.COURSE__COURSE_INSTANCES:
 				return courseInstances != null && !courseInstances.isEmpty();
 			case CoursePackage.COURSE__DEPARTMENT:
 				return getDepartment() != null;
+			case CoursePackage.COURSE__PRE_REQUISITIES:
+				return preRequisities != null && !preRequisities.isEmpty();
+			case CoursePackage.COURSE__DEPENDENT_COURSES:
+				return dependentCourses != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -604,6 +578,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		result.append(content);
 		result.append(", credits: ");
 		result.append(credits);
+		result.append(", dependentCourses: ");
+		result.append(dependentCourses);
 		result.append(')');
 		return result.toString();
 	}

@@ -19,12 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Course#getName <em>Name</em>}</li>
  *   <li>{@link course.Course#getContent <em>Content</em>}</li>
  *   <li>{@link course.Course#getCredits <em>Credits</em>}</li>
- *   <li>{@link course.Course#getRequiredPreCond <em>Required Pre Cond</em>}</li>
- *   <li>{@link course.Course#getRecommendedPreCond <em>Recommended Pre Cond</em>}</li>
- *   <li>{@link course.Course#getDependency <em>Dependency</em>}</li>
  *   <li>{@link course.Course#getStudyPrograms <em>Study Programs</em>}</li>
  *   <li>{@link course.Course#getCourseInstances <em>Course Instances</em>}</li>
  *   <li>{@link course.Course#getDepartment <em>Department</em>}</li>
+ *   <li>{@link course.Course#getPreRequisities <em>Pre Requisities</em>}</li>
+ *   <li>{@link course.Course#getDependentCourses <em>Dependent Courses</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getCourse()
@@ -137,54 +136,6 @@ public interface Course extends EObject {
 	void setCredits(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Required Pre Cond</b></em>' reference list.
-	 * The list contents are of type {@link course.Course}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Required Pre Cond</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Pre Cond</em>' reference list.
-	 * @see course.CoursePackage#getCourse_RequiredPreCond()
-	 * @model
-	 * @generated
-	 */
-	EList<Course> getRequiredPreCond();
-
-	/**
-	 * Returns the value of the '<em><b>Recommended Pre Cond</b></em>' reference list.
-	 * The list contents are of type {@link course.Course}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Recommended Pre Cond</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Recommended Pre Cond</em>' reference list.
-	 * @see course.CoursePackage#getCourse_RecommendedPreCond()
-	 * @model
-	 * @generated
-	 */
-	EList<Course> getRecommendedPreCond();
-
-	/**
-	 * Returns the value of the '<em><b>Dependency</b></em>' reference list.
-	 * The list contents are of type {@link course.Course}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependency</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency</em>' reference list.
-	 * @see course.CoursePackage#getCourse_Dependency()
-	 * @model
-	 * @generated
-	 */
-	EList<Course> getDependency();
-
-	/**
 	 * Returns the value of the '<em><b>Study Programs</b></em>' reference list.
 	 * The list contents are of type {@link course.StudyProgram}.
 	 * <!-- begin-user-doc -->
@@ -245,5 +196,47 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	void setDepartment(Department value);
+
+	/**
+	 * Returns the value of the '<em><b>Pre Requisities</b></em>' reference list.
+	 * The list contents are of type {@link course.Course}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pre Requisities</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pre Requisities</em>' reference list.
+	 * @see course.CoursePackage#getCourse_PreRequisities()
+	 * @model
+	 * @generated
+	 */
+	EList<Course> getPreRequisities();
+
+	/**
+	 * Returns the value of the '<em><b>Dependent Courses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependent Courses</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependent Courses</em>' attribute.
+	 * @see #setDependentCourses(EList)
+	 * @see course.CoursePackage#getCourse_DependentCourses()
+	 * @model required="true" many="false" transient="true"
+	 * @generated
+	 */
+	EList getDependentCourses();
+
+	/**
+	 * Sets the value of the '{@link course.Course#getDependentCourses <em>Dependent Courses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dependent Courses</em>' attribute.
+	 * @see #getDependentCourses()
+	 * @generated
+	 */
+	void setDependentCourses(EList value);
 
 } // Course

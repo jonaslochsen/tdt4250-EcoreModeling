@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.CourseInstance#getEvaluation <em>Evaluation</em>}</li>
  *   <li>{@link course.CourseInstance#getCourseWork <em>Course Work</em>}</li>
  *   <li>{@link course.CourseInstance#getTimeTable <em>Time Table</em>}</li>
+ *   <li>{@link course.CourseInstance#getSemester <em>Semester</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getCourseInstance()
@@ -164,5 +165,34 @@ public interface CourseInstance extends EObject {
 	 * @generated
 	 */
 	void setTimeTable(Timetable value);
+
+	/**
+	 * Returns the value of the '<em><b>Semester</b></em>' attribute.
+	 * The literals are from the enumeration {@link course.semesterType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Semester</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Semester</em>' attribute.
+	 * @see course.semesterType
+	 * @see #setSemester(semesterType)
+	 * @see course.CoursePackage#getCourseInstance_Semester()
+	 * @model required="true"
+	 * @generated
+	 */
+	semesterType getSemester();
+
+	/**
+	 * Sets the value of the '{@link course.CourseInstance#getSemester <em>Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Semester</em>' attribute.
+	 * @see course.semesterType
+	 * @see #getSemester()
+	 * @generated
+	 */
+	void setSemester(semesterType value);
 
 } // CourseInstance

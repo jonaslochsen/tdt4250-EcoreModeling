@@ -3,7 +3,6 @@
 package course.provider;
 
 
-import course.CourseInstance;
 import course.CoursePackage;
 import course.Studies;
 
@@ -131,7 +130,7 @@ public class StudiesItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EList<CourseInstance> labelValue = ((Studies)object).getCurrentCourses();
+		EList labelValue = ((Studies)object).getCurrentCourses();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Studies_type") :
