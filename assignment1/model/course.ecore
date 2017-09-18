@@ -146,8 +146,6 @@
     <eOperations name="signOffFromExam">
       <eParameters name="courseInstance" lowerBound="1" eType="#//CourseInstance"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pastCourses" upperBound="-1"
-        eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="student" lowerBound="1"
         eType="#//Person" eOpposite="#//Person/studies"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentCourses" lowerBound="1"
@@ -157,6 +155,8 @@
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pastCourses" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="semesterType">
     <eLiterals name="Spring"/>

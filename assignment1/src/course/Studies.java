@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link course.Studies#getPastCourses <em>Past Courses</em>}</li>
  *   <li>{@link course.Studies#getStudent <em>Student</em>}</li>
  *   <li>{@link course.Studies#getCurrentCourses <em>Current Courses</em>}</li>
  *   <li>{@link course.Studies#getExams <em>Exams</em>}</li>
  *   <li>{@link course.Studies#getCredits <em>Credits</em>}</li>
+ *   <li>{@link course.Studies#getPastCourses <em>Past Courses</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudies()
@@ -28,20 +28,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Studies extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Past Courses</b></em>' reference list.
-	 * The list contents are of type {@link course.Course}.
+	 * Returns the value of the '<em><b>Past Courses</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Past Courses</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Past Courses</em>' reference list.
+	 * @return the value of the '<em>Past Courses</em>' attribute.
+	 * @see #setPastCourses(EList)
 	 * @see course.CoursePackage#getStudies_PastCourses()
-	 * @model
+	 * @model required="true" many="false" transient="true"
 	 * @generated
 	 */
-	EList<Course> getPastCourses();
+	EList getPastCourses();
+
+	/**
+	 * Sets the value of the '{@link course.Studies#getPastCourses <em>Past Courses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Past Courses</em>' attribute.
+	 * @see #getPastCourses()
+	 * @generated
+	 */
+	void setPastCourses(EList value);
 
 	/**
 	 * Returns the value of the '<em><b>Student</b></em>' container reference.
@@ -83,9 +93,9 @@ public interface Studies extends EObject {
 	 * @see #setCurrentCourses(EList)
 	 * @see course.CoursePackage#getStudies_CurrentCourses()
 	 * @model required="true" many="false" transient="true" volatile="true" derived="true"
-	 * @generated
+	 * @generated NOT
 	 */
-	EList getCurrentCourses();
+	EList<CourseInstance> getCurrentCourses();
 
 	/**
 	 * Sets the value of the '{@link course.Studies#getCurrentCourses <em>Current Courses</em>}' attribute.
@@ -93,9 +103,9 @@ public interface Studies extends EObject {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Current Courses</em>' attribute.
 	 * @see #getCurrentCourses()
-	 * @generated
+	 * @generated NOT
 	 */
-	void setCurrentCourses(EList value);
+	void setCurrentCourses(EList<CourseInstance> value);
 
 	/**
 	 * Returns the value of the '<em><b>Exams</b></em>' attribute.

@@ -61,10 +61,10 @@ public class StudiesItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPastCoursesPropertyDescriptor(object);
 			addCurrentCoursesPropertyDescriptor(object);
 			addExamsPropertyDescriptor(object);
 			addCreditsPropertyDescriptor(object);
+			addPastCoursesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,8 +85,8 @@ public class StudiesItemProvider
 				 CoursePackage.Literals.STUDIES__PAST_COURSES,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -199,6 +199,7 @@ public class StudiesItemProvider
 			case CoursePackage.STUDIES__CURRENT_COURSES:
 			case CoursePackage.STUDIES__EXAMS:
 			case CoursePackage.STUDIES__CREDITS:
+			case CoursePackage.STUDIES__PAST_COURSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -2,7 +2,6 @@
  */
 package course.impl;
 
-import course.Course;
 import course.CourseInstance;
 import course.CoursePackage;
 import course.Employment;
@@ -11,8 +10,6 @@ import course.Studies;
 import course.TypeOfEmployment;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -23,8 +20,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -35,26 +30,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link course.impl.StudiesImpl#getPastCourses <em>Past Courses</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getStudent <em>Student</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getCurrentCourses <em>Current Courses</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getExams <em>Exams</em>}</li>
  *   <li>{@link course.impl.StudiesImpl#getCredits <em>Credits</em>}</li>
+ *   <li>{@link course.impl.StudiesImpl#getPastCourses <em>Past Courses</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies {
-	/**
-	 * The cached value of the '{@link #getPastCourses() <em>Past Courses</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPastCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> pastCourses;
-
 	/**
 	 * The cached value of the '{@link #getExams() <em>Exams</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -86,6 +71,16 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	protected double credits = CREDITS_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getPastCourses() <em>Past Courses</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPastCourses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList pastCourses;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -109,11 +104,20 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Course> getPastCourses() {
-		if (pastCourses == null) {
-			pastCourses = new EObjectResolvingEList<Course>(Course.class, this, CoursePackage.STUDIES__PAST_COURSES);
-		}
+	public EList getPastCourses() {
 		return pastCourses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPastCourses(EList newPastCourses) {
+		EList oldPastCourses = pastCourses;
+		pastCourses = newPastCourses;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDIES__PAST_COURSES, oldPastCourses, pastCourses));
 	}
 
 	/**
@@ -200,7 +204,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void setExams(EList newExams) {
+	public void setExams(EList<CourseInstance> newExams) {
 		EList<CourseInstance> oldExams = exams;
 		exams = newExams;
 		if (eNotificationRequired())
@@ -298,8 +302,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CoursePackage.STUDIES__PAST_COURSES:
-				return getPastCourses();
 			case CoursePackage.STUDIES__STUDENT:
 				return getStudent();
 			case CoursePackage.STUDIES__CURRENT_COURSES:
@@ -308,6 +310,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return getExams();
 			case CoursePackage.STUDIES__CREDITS:
 				return getCredits();
+			case CoursePackage.STUDIES__PAST_COURSES:
+				return getPastCourses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,10 +325,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CoursePackage.STUDIES__PAST_COURSES:
-				getPastCourses().clear();
-				getPastCourses().addAll((Collection<? extends Course>)newValue);
-				return;
 			case CoursePackage.STUDIES__STUDENT:
 				setStudent((Person)newValue);
 				return;
@@ -336,6 +336,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return;
 			case CoursePackage.STUDIES__CREDITS:
 				setCredits((Double)newValue);
+				return;
+			case CoursePackage.STUDIES__PAST_COURSES:
+				setPastCourses((EList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -349,9 +352,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CoursePackage.STUDIES__PAST_COURSES:
-				getPastCourses().clear();
-				return;
 			case CoursePackage.STUDIES__STUDENT:
 				setStudent((Person)null);
 				return;
@@ -363,6 +363,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return;
 			case CoursePackage.STUDIES__CREDITS:
 				setCredits(CREDITS_EDEFAULT);
+				return;
+			case CoursePackage.STUDIES__PAST_COURSES:
+				setPastCourses((EList)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -376,8 +379,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CoursePackage.STUDIES__PAST_COURSES:
-				return pastCourses != null && !pastCourses.isEmpty();
 			case CoursePackage.STUDIES__STUDENT:
 				return getStudent() != null;
 			case CoursePackage.STUDIES__CURRENT_COURSES:
@@ -386,6 +387,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 				return exams != null;
 			case CoursePackage.STUDIES__CREDITS:
 				return credits != CREDITS_EDEFAULT;
+			case CoursePackage.STUDIES__PAST_COURSES:
+				return pastCourses != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -422,6 +425,8 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 		result.append(exams);
 		result.append(", credits: ");
 		result.append(credits);
+		result.append(", pastCourses: ");
+		result.append(pastCourses);
 		result.append(')');
 		return result.toString();
 	}

@@ -892,22 +892,13 @@ public interface CoursePackage extends EPackage {
 	int STUDIES = 13;
 
 	/**
-	 * The feature id for the '<em><b>Past Courses</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDIES__PAST_COURSES = 0;
-
-	/**
 	 * The feature id for the '<em><b>Student</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES__STUDENT = 1;
+	int STUDIES__STUDENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Current Courses</b></em>' attribute.
@@ -916,7 +907,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES__CURRENT_COURSES = 2;
+	int STUDIES__CURRENT_COURSES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Exams</b></em>' attribute.
@@ -925,7 +916,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES__EXAMS = 3;
+	int STUDIES__EXAMS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Credits</b></em>' attribute.
@@ -934,7 +925,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDIES__CREDITS = 4;
+	int STUDIES__CREDITS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Past Courses</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDIES__PAST_COURSES = 4;
 
 	/**
 	 * The number of structural features of the '<em>Studies</em>' class.
@@ -1715,15 +1715,15 @@ public interface CoursePackage extends EPackage {
 	EClass getStudies();
 
 	/**
-	 * Returns the meta object for the reference list '{@link course.Studies#getPastCourses <em>Past Courses</em>}'.
+	 * Returns the meta object for the attribute '{@link course.Studies#getPastCourses <em>Past Courses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Past Courses</em>'.
+	 * @return the meta object for the attribute '<em>Past Courses</em>'.
 	 * @see course.Studies#getPastCourses()
 	 * @see #getStudies()
 	 * @generated
 	 */
-	EReference getStudies_PastCourses();
+	EAttribute getStudies_PastCourses();
 
 	/**
 	 * Returns the meta object for the container reference '{@link course.Studies#getStudent <em>Student</em>}'.
@@ -2401,12 +2401,12 @@ public interface CoursePackage extends EPackage {
 		EClass STUDIES = eINSTANCE.getStudies();
 
 		/**
-		 * The meta object literal for the '<em><b>Past Courses</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Past Courses</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STUDIES__PAST_COURSES = eINSTANCE.getStudies_PastCourses();
+		EAttribute STUDIES__PAST_COURSES = eINSTANCE.getStudies_PastCourses();
 
 		/**
 		 * The meta object literal for the '<em><b>Student</b></em>' container reference feature.

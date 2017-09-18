@@ -828,8 +828,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudies_PastCourses() {
-		return (EReference)studiesEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStudies_PastCourses() {
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -838,7 +838,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	public EReference getStudies_Student() {
-		return (EReference)studiesEClass.getEStructuralFeatures().get(1);
+		return (EReference)studiesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -847,7 +847,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	public EAttribute getStudies_CurrentCourses() {
-		return (EAttribute)studiesEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -856,7 +856,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	public EAttribute getStudies_Exams() {
-		return (EAttribute)studiesEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -865,7 +865,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	public EAttribute getStudies_Credits() {
-		return (EAttribute)studiesEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)studiesEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1028,11 +1028,11 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(employmentEClass, EMPLOYMENT__ORGANISATION);
 
 		studiesEClass = createEClass(STUDIES);
-		createEReference(studiesEClass, STUDIES__PAST_COURSES);
 		createEReference(studiesEClass, STUDIES__STUDENT);
 		createEAttribute(studiesEClass, STUDIES__CURRENT_COURSES);
 		createEAttribute(studiesEClass, STUDIES__EXAMS);
 		createEAttribute(studiesEClass, STUDIES__CREDITS);
+		createEAttribute(studiesEClass, STUDIES__PAST_COURSES);
 		createEOperation(studiesEClass, STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE);
 		createEOperation(studiesEClass, STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE);
 
@@ -1153,11 +1153,11 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEReference(getEmployment_Organisation(), this.getOrganisation(), this.getOrganisation_Employees(), "organisation", null, 1, 1, Employment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(studiesEClass, Studies.class, "Studies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStudies_PastCourses(), this.getCourse(), null, "pastCourses", null, 0, -1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudies_Student(), this.getPerson(), this.getPerson_Studies(), "student", null, 1, 1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudies_CurrentCourses(), ecorePackage.getEEList(), "currentCourses", null, 1, 1, Studies.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudies_Exams(), ecorePackage.getEEList(), "exams", null, 1, 1, Studies.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudies_Credits(), ecorePackage.getEDouble(), "credits", null, 1, 1, Studies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudies_PastCourses(), ecorePackage.getEEList(), "pastCourses", null, 1, 1, Studies.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getStudies__SignUpForExam__CourseInstance(), null, "signUpForExam", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCourseInstance(), "courseInstance", 1, 1, IS_UNIQUE, IS_ORDERED);
