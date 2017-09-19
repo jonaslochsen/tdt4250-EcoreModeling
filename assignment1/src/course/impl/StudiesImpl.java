@@ -2,6 +2,7 @@
  */
 package course.impl;
 
+import course.Course;
 import course.CourseInstance;
 import course.CoursePackage;
 import course.Employment;
@@ -75,10 +76,10 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPastCourses()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected EList pastCourses;
+	protected EList<Course> pastCourses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,18 +103,18 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList getPastCourses() {
+	public EList<Course> getPastCourses() {
 		return pastCourses;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setPastCourses(EList newPastCourses) {
+	public void setPastCourses(EList<Course> newPastCourses) {
 		EList oldPastCourses = pastCourses;
 		pastCourses = newPastCourses;
 		if (eNotificationRequired())
@@ -182,9 +183,9 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setCurrentCourses(EList newCurrentCourses) {
+	public void setCurrentCourses(EList<CourseInstance> newCurrentCourses) {
 		// TODO: implement this method to set the 'Current Courses' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -238,7 +239,11 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * @generated NOT
 	 */
 	public void signUpForExam(CourseInstance courseInstance) {
-		exams.add(courseInstance);
+		if (!exams.contains(courseInstance)) {
+			exams.add(courseInstance);
+		}else {
+			throw new IllegalArgumentException("Cannot sign up for an exam that the student has already signed up for.");
+		}	
 	}
 
 	/**
@@ -247,7 +252,11 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * @generated NOT
 	 */
 	public void signOffFromExam(CourseInstance courseInstance) {
-		exams.remove(courseInstance);
+		if (exams.contains(courseInstance)) {
+			exams.remove(courseInstance);
+		}else {
+			throw new IllegalArgumentException("Cannot sign off from an exam that the student has not signed up for.");
+		}	
 	}
 
 	/**

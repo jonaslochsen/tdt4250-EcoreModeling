@@ -113,6 +113,8 @@ public class CourseValidator extends EObjectValidator {
 				return validateEmployment((Employment)value, diagnostics, context);
 			case CoursePackage.STUDIES:
 				return validateStudies((Studies)value, diagnostics, context);
+			case CoursePackage.COURSE_POINT_REDUCTION:
+				return validateCoursePointReduction((CoursePointReduction)value, diagnostics, context);
 			case CoursePackage.DAY_OF_WEEK:
 				return validateDayOfWeek((DayOfWeek)value, diagnostics, context);
 			case CoursePackage.TYPE_OF_INSTRUCTION:
@@ -223,7 +225,27 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEvaluation(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(evaluation, diagnostics, context);
+		if (!validate_NoCircularContainment(evaluation, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvaluation_evaluationMustSumToOne(evaluation, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the evaluationMustSumToOne constraint of '<em>Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateEvaluation_evaluationMustSumToOne(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return (evaluation.getExam() + evaluation.getProject() + evaluation.getAssigments()) == 1;
 	}
 
 	/**
@@ -313,6 +335,15 @@ public class CourseValidator extends EObjectValidator {
 	 */
 	public boolean validateStudies(Studies studies, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(studies, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCoursePointReduction(CoursePointReduction coursePointReduction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(coursePointReduction, diagnostics, context);
 	}
 
 	/**

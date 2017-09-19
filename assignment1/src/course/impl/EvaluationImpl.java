@@ -2,8 +2,10 @@
  */
 package course.impl;
 
+import course.Course;
 import course.CourseInstance;
 import course.CoursePackage;
+import course.CoursePointReduction;
 import course.Evaluation;
 
 import course.Studies;
@@ -226,13 +228,9 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * @generated NOT
 	 */
 	public void completeExam(Studies student) {
-		double courseCredits = getCourseInstance().getCourse().getCredits();
-		double pastCredits = student.getCredits();
-		student.setCredits(pastCredits + courseCredits);
-		student.signOffFromExam(getCourseInstance());
+		student.setCredits(calculateNewTotalCredits(student));
 		
-		//Remove from currentCourse
-		//Add to pastCourses
+		updateCurrentAndPastCourses(student);
 	}
 
 	/**
@@ -400,6 +398,29 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 		result.append(assigments);
 		result.append(')');
 		return result.toString();
+	}
+	
+	private double calculateNewTotalCredits(Studies student) {
+		
+		EList<Course> pastCourses = student.getPastCourses();
+		EList<CoursePointReduction> pointReductions = getCourseInstance().getCourse().getCourseReductions();
+		double reductions = 0.0;
+		for (CoursePointReduction coursePointReduction : pointReductions) {
+			if (pastCourses.contains(coursePointReduction)) {
+				reductions += coursePointReduction.getReduction();
+			}
+		}
+		double courseCredits = getCourseInstance().getCourse().getCredits() - reductions;
+		double pastCredits = student.getCredits();
+		
+		return courseCredits + pastCredits;
+	}
+	
+	private void updateCurrentAndPastCourses(Studies student) {
+		EList<Course> pastCourses = student.getPastCourses();
+		pastCourses.add(getCourseInstance().getCourse());
+		student.setPastCourses(pastCourses);
+		student.signOffFromExam(getCourseInstance());
 	}
 
 } //EvaluationImpl

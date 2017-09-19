@@ -5,6 +5,7 @@ package course.impl;
 import course.Course;
 import course.CourseInstance;
 import course.CoursePackage;
+import course.CoursePointReduction;
 import course.Department;
 import course.StudyProgram;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -42,7 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course.impl.CourseImpl#getCourseInstances <em>Course Instances</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getDepartment <em>Department</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getPreRequisities <em>Pre Requisities</em>}</li>
- *   <li>{@link course.impl.CourseImpl#getDependentCourses <em>Dependent Courses</em>}</li>
+ *   <li>{@link course.impl.CourseImpl#getCourseReductions <em>Course Reductions</em>}</li>
  * </ul>
  *
  * @generated
@@ -159,14 +161,14 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	protected EList<Course> preRequisities;
 
 	/**
-	 * The cached value of the '{@link #getDependentCourses() <em>Dependent Courses</em>}' attribute.
+	 * The cached value of the '{@link #getCourseReductions() <em>Course Reductions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependentCourses()
+	 * @see #getCourseReductions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependentCourses;
+	protected EList<CoursePointReduction> courseReductions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -353,20 +355,11 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDependentCourses() {
-		return dependentCourses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDependentCourses(EList newDependentCourses) {
-		EList oldDependentCourses = dependentCourses;
-		dependentCourses = newDependentCourses;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE__DEPENDENT_COURSES, oldDependentCourses, dependentCourses));
+	public EList<CoursePointReduction> getCourseReductions() {
+		if (courseReductions == null) {
+			courseReductions = new EObjectContainmentEList<CoursePointReduction>(CoursePointReduction.class, this, CoursePackage.COURSE__COURSE_REDUCTIONS);
+		}
+		return courseReductions;
 	}
 
 	/**
@@ -400,6 +393,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return ((InternalEList<?>)getCourseInstances()).basicRemove(otherEnd, msgs);
 			case CoursePackage.COURSE__DEPARTMENT:
 				return basicSetDepartment(null, msgs);
+			case CoursePackage.COURSE__COURSE_REDUCTIONS:
+				return ((InternalEList<?>)getCourseReductions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -442,8 +437,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getDepartment();
 			case CoursePackage.COURSE__PRE_REQUISITIES:
 				return getPreRequisities();
-			case CoursePackage.COURSE__DEPENDENT_COURSES:
-				return getDependentCourses();
+			case CoursePackage.COURSE__COURSE_REDUCTIONS:
+				return getCourseReductions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -484,8 +479,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				getPreRequisities().clear();
 				getPreRequisities().addAll((Collection<? extends Course>)newValue);
 				return;
-			case CoursePackage.COURSE__DEPENDENT_COURSES:
-				setDependentCourses((EList)newValue);
+			case CoursePackage.COURSE__COURSE_REDUCTIONS:
+				getCourseReductions().clear();
+				getCourseReductions().addAll((Collection<? extends CoursePointReduction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -523,8 +519,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case CoursePackage.COURSE__PRE_REQUISITIES:
 				getPreRequisities().clear();
 				return;
-			case CoursePackage.COURSE__DEPENDENT_COURSES:
-				setDependentCourses((EList)null);
+			case CoursePackage.COURSE__COURSE_REDUCTIONS:
+				getCourseReductions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -554,8 +550,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getDepartment() != null;
 			case CoursePackage.COURSE__PRE_REQUISITIES:
 				return preRequisities != null && !preRequisities.isEmpty();
-			case CoursePackage.COURSE__DEPENDENT_COURSES:
-				return dependentCourses != null;
+			case CoursePackage.COURSE__COURSE_REDUCTIONS:
+				return courseReductions != null && !courseReductions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -578,8 +574,6 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		result.append(content);
 		result.append(", credits: ");
 		result.append(credits);
-		result.append(", dependentCourses: ");
-		result.append(dependentCourses);
 		result.append(')');
 		return result.toString();
 	}

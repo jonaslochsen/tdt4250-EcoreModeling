@@ -260,13 +260,13 @@ public interface CoursePackage extends EPackage {
 	int COURSE__PRE_REQUISITIES = 7;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Courses</b></em>' attribute.
+	 * The feature id for the '<em><b>Course Reductions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE__DEPENDENT_COURSES = 8;
+	int COURSE__COURSE_REDUCTIONS = 8;
 
 	/**
 	 * The number of structural features of the '<em>Course</em>' class.
@@ -973,6 +973,52 @@ public interface CoursePackage extends EPackage {
 	int STUDIES_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link course.impl.CoursePointReductionImpl <em>Point Reduction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.impl.CoursePointReductionImpl
+	 * @see course.impl.CoursePackageImpl#getCoursePointReduction()
+	 * @generated
+	 */
+	int COURSE_POINT_REDUCTION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Reduction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_POINT_REDUCTION__REDUCTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Course</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_POINT_REDUCTION__COURSE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Point Reduction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_POINT_REDUCTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Point Reduction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_POINT_REDUCTION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link course.DayOfWeek <em>Day Of Week</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -980,7 +1026,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getDayOfWeek()
 	 * @generated
 	 */
-	int DAY_OF_WEEK = 14;
+	int DAY_OF_WEEK = 15;
 
 	/**
 	 * The meta object id for the '{@link course.TypeOfInstruction <em>Type Of Instruction</em>}' enum.
@@ -990,7 +1036,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getTypeOfInstruction()
 	 * @generated
 	 */
-	int TYPE_OF_INSTRUCTION = 15;
+	int TYPE_OF_INSTRUCTION = 16;
 
 	/**
 	 * The meta object id for the '{@link course.TypeOfEmployment <em>Type Of Employment</em>}' enum.
@@ -1000,7 +1046,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getTypeOfEmployment()
 	 * @generated
 	 */
-	int TYPE_OF_EMPLOYMENT = 16;
+	int TYPE_OF_EMPLOYMENT = 17;
 
 
 	/**
@@ -1011,7 +1057,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getsemesterType()
 	 * @generated
 	 */
-	int SEMESTER_TYPE = 17;
+	int SEMESTER_TYPE = 18;
 
 
 	/**
@@ -1210,15 +1256,15 @@ public interface CoursePackage extends EPackage {
 	EReference getCourse_PreRequisities();
 
 	/**
-	 * Returns the meta object for the attribute '{@link course.Course#getDependentCourses <em>Dependent Courses</em>}'.
+	 * Returns the meta object for the containment reference list '{@link course.Course#getCourseReductions <em>Course Reductions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dependent Courses</em>'.
-	 * @see course.Course#getDependentCourses()
+	 * @return the meta object for the containment reference list '<em>Course Reductions</em>'.
+	 * @see course.Course#getCourseReductions()
 	 * @see #getCourse()
 	 * @generated
 	 */
-	EAttribute getCourse_DependentCourses();
+	EReference getCourse_CourseReductions();
 
 	/**
 	 * Returns the meta object for class '{@link course.CourseInstance <em>Instance</em>}'.
@@ -1790,6 +1836,38 @@ public interface CoursePackage extends EPackage {
 	EOperation getStudies__SignOffFromExam__CourseInstance();
 
 	/**
+	 * Returns the meta object for class '{@link course.CoursePointReduction <em>Point Reduction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point Reduction</em>'.
+	 * @see course.CoursePointReduction
+	 * @generated
+	 */
+	EClass getCoursePointReduction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.CoursePointReduction#getReduction <em>Reduction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reduction</em>'.
+	 * @see course.CoursePointReduction#getReduction()
+	 * @see #getCoursePointReduction()
+	 * @generated
+	 */
+	EAttribute getCoursePointReduction_Reduction();
+
+	/**
+	 * Returns the meta object for the reference '{@link course.CoursePointReduction#getCourse <em>Course</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Course</em>'.
+	 * @see course.CoursePointReduction#getCourse()
+	 * @see #getCoursePointReduction()
+	 * @generated
+	 */
+	EReference getCoursePointReduction_Course();
+
+	/**
 	 * Returns the meta object for enum '{@link course.DayOfWeek <em>Day Of Week</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2003,12 +2081,12 @@ public interface CoursePackage extends EPackage {
 		EReference COURSE__PRE_REQUISITIES = eINSTANCE.getCourse_PreRequisities();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependent Courses</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Course Reductions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COURSE__DEPENDENT_COURSES = eINSTANCE.getCourse_DependentCourses();
+		EReference COURSE__COURSE_REDUCTIONS = eINSTANCE.getCourse_CourseReductions();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.CourseInstanceImpl <em>Instance</em>}' class.
@@ -2455,6 +2533,32 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE = eINSTANCE.getStudies__SignOffFromExam__CourseInstance();
+
+		/**
+		 * The meta object literal for the '{@link course.impl.CoursePointReductionImpl <em>Point Reduction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.impl.CoursePointReductionImpl
+		 * @see course.impl.CoursePackageImpl#getCoursePointReduction()
+		 * @generated
+		 */
+		EClass COURSE_POINT_REDUCTION = eINSTANCE.getCoursePointReduction();
+
+		/**
+		 * The meta object literal for the '<em><b>Reduction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COURSE_POINT_REDUCTION__REDUCTION = eINSTANCE.getCoursePointReduction_Reduction();
+
+		/**
+		 * The meta object literal for the '<em><b>Course</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE_POINT_REDUCTION__COURSE = eINSTANCE.getCoursePointReduction_Course();
 
 		/**
 		 * The meta object literal for the '{@link course.DayOfWeek <em>Day Of Week</em>}' enum.

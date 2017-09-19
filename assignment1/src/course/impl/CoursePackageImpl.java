@@ -6,6 +6,7 @@ import course.Course;
 import course.CourseFactory;
 import course.CourseInstance;
 import course.CoursePackage;
+import course.CoursePointReduction;
 import course.CourseWork;
 import course.DayOfWeek;
 import course.Department;
@@ -139,6 +140,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	private EClass studiesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass coursePointReductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -405,8 +413,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCourse_DependentCourses() {
-		return (EAttribute)courseEClass.getEStructuralFeatures().get(8);
+	public EReference getCourse_CourseReductions() {
+		return (EReference)courseEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -891,6 +899,33 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCoursePointReduction() {
+		return coursePointReductionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCoursePointReduction_Reduction() {
+		return (EAttribute)coursePointReductionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCoursePointReduction_Course() {
+		return (EReference)coursePointReductionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDayOfWeek() {
 		return dayOfWeekEEnum;
 	}
@@ -970,7 +1005,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(courseEClass, COURSE__COURSE_INSTANCES);
 		createEReference(courseEClass, COURSE__DEPARTMENT);
 		createEReference(courseEClass, COURSE__PRE_REQUISITIES);
-		createEAttribute(courseEClass, COURSE__DEPENDENT_COURSES);
+		createEReference(courseEClass, COURSE__COURSE_REDUCTIONS);
 
 		courseInstanceEClass = createEClass(COURSE_INSTANCE);
 		createEReference(courseInstanceEClass, COURSE_INSTANCE__COURSE);
@@ -1036,6 +1071,10 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEOperation(studiesEClass, STUDIES___SIGN_UP_FOR_EXAM__COURSEINSTANCE);
 		createEOperation(studiesEClass, STUDIES___SIGN_OFF_FROM_EXAM__COURSEINSTANCE);
 
+		coursePointReductionEClass = createEClass(COURSE_POINT_REDUCTION);
+		createEAttribute(coursePointReductionEClass, COURSE_POINT_REDUCTION__REDUCTION);
+		createEReference(coursePointReductionEClass, COURSE_POINT_REDUCTION__COURSE);
+
 		// Create enums
 		dayOfWeekEEnum = createEEnum(DAY_OF_WEEK);
 		typeOfInstructionEEnum = createEEnum(TYPE_OF_INSTRUCTION);
@@ -1093,7 +1132,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEReference(getCourse_CourseInstances(), this.getCourseInstance(), this.getCourseInstance_Course(), "courseInstances", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_Department(), this.getDepartment(), this.getDepartment_Courses(), "department", null, 1, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_PreRequisities(), this.getCourse(), null, "preRequisities", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourse_DependentCourses(), ecorePackage.getEEList(), "dependentCourses", null, 1, 1, Course.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_CourseReductions(), this.getCoursePointReduction(), null, "courseReductions", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseInstanceEClass, CourseInstance.class, "CourseInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCourseInstance_Course(), this.getCourse(), this.getCourse_CourseInstances(), "course", null, 1, 1, CourseInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1165,6 +1204,10 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		op = initEOperation(getStudies__SignOffFromExam__CourseInstance(), null, "signOffFromExam", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCourseInstance(), "courseInstance", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(coursePointReductionEClass, CoursePointReduction.class, "CoursePointReduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCoursePointReduction_Reduction(), ecorePackage.getEDouble(), "reduction", null, 1, 1, CoursePointReduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCoursePointReduction_Course(), this.getCourse(), null, "course", null, 1, 1, CoursePointReduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(dayOfWeekEEnum, DayOfWeek.class, "DayOfWeek");
 		addEEnumLiteral(dayOfWeekEEnum, DayOfWeek.MONDAY);
@@ -1208,6 +1251,12 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		   source, 
 		   new String[] {
 			 "constraints", "scheduledHours"
+		   });	
+		addAnnotation
+		  (evaluationEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "evaluationMustSumToOne"
 		   });	
 		addAnnotation
 		  (employmentEClass, 

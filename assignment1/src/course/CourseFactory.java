@@ -148,6 +148,15 @@ public interface CourseFactory extends EFactory {
 	Studies createStudies();
 
 	/**
+	 * Returns a new object of class '<em>Point Reduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Point Reduction</em>'.
+	 * @generated
+	 */
+	CoursePointReduction createCoursePointReduction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

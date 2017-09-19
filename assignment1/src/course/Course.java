@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Course#getCourseInstances <em>Course Instances</em>}</li>
  *   <li>{@link course.Course#getDepartment <em>Department</em>}</li>
  *   <li>{@link course.Course#getPreRequisities <em>Pre Requisities</em>}</li>
- *   <li>{@link course.Course#getDependentCourses <em>Dependent Courses</em>}</li>
+ *   <li>{@link course.Course#getCourseReductions <em>Course Reductions</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getCourse()
@@ -214,29 +214,19 @@ public interface Course extends EObject {
 	EList<Course> getPreRequisities();
 
 	/**
-	 * Returns the value of the '<em><b>Dependent Courses</b></em>' attribute.
+	 * Returns the value of the '<em><b>Course Reductions</b></em>' containment reference list.
+	 * The list contents are of type {@link course.CoursePointReduction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dependent Courses</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Course Reductions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependent Courses</em>' attribute.
-	 * @see #setDependentCourses(EList)
-	 * @see course.CoursePackage#getCourse_DependentCourses()
-	 * @model required="true" many="false" transient="true"
+	 * @return the value of the '<em>Course Reductions</em>' containment reference list.
+	 * @see course.CoursePackage#getCourse_CourseReductions()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getDependentCourses();
-
-	/**
-	 * Sets the value of the '{@link course.Course#getDependentCourses <em>Dependent Courses</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dependent Courses</em>' attribute.
-	 * @see #getDependentCourses()
-	 * @generated
-	 */
-	void setDependentCourses(EList value);
+	EList<CoursePointReduction> getCourseReductions();
 
 } // Course

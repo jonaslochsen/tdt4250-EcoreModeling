@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see course.CoursePackage#getEvaluation()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='evaluationMustSumToOne'"
  * @generated
  */
 public interface Evaluation extends EObject {

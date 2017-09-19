@@ -394,6 +394,29 @@ public class CourseItemProviderAdapterFactory extends CourseAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link course.CoursePointReduction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CoursePointReductionItemProvider coursePointReductionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link course.CoursePointReduction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCoursePointReductionAdapter() {
+		if (coursePointReductionItemProvider == null) {
+			coursePointReductionItemProvider = new CoursePointReductionItemProvider(this);
+		}
+
+		return coursePointReductionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,6 +529,7 @@ public class CourseItemProviderAdapterFactory extends CourseAdapterFactory imple
 		if (timetableEntryItemProvider != null) timetableEntryItemProvider.dispose();
 		if (employmentItemProvider != null) employmentItemProvider.dispose();
 		if (studiesItemProvider != null) studiesItemProvider.dispose();
+		if (coursePointReductionItemProvider != null) coursePointReductionItemProvider.dispose();
 	}
 
 }

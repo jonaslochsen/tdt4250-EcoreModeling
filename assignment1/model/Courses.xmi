@@ -4,7 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:course="platform:/plugin/assignment1/model/course.ecore"
-    xsi:schemaLocation="platform:/plugin/assignment1/model/course.ecore course.ecore">
+    xsi:schemaLocation="platform:/plugin/assignment1/model/course.ecore course.ecore"
+    name="Norwegian University of Science and Technology">
   <faculties
       name="of Information Technology and Electrical Engineering"
       shortName="IE">
@@ -57,6 +58,9 @@
                 type="Lecture"/>
           </timeTable>
         </courseInstances>
+        <courseReductions
+            reduction="7.5"
+            course="//@faculties.0/@departments.0/@courses.6"/>
       </courses>
       <courses
           code="TDT4100"
@@ -97,6 +101,9 @@
                 type="Lecture"/>
           </timeTable>
         </courseInstances>
+        <courseReductions
+            reduction="3.7"
+            course="//@faculties.0/@departments.0/@courses.5"/>
       </courses>
       <courses
           code="TDT4140"
@@ -110,6 +117,15 @@
       <courses
           code="TDT4240"
           name="Software Architecture"
+          credits="7.5"/>
+      <courses
+          code="TDT4102"
+          name="Procedural and Object-Oriented Programming"
+          credits="7.5"/>
+      <courses
+          code="SIF8060"
+          name="Modelling Information Systems"
+          content=""
           credits="7.5"/>
       <studyPrograms
           code="MTDT"/>

@@ -39,9 +39,9 @@ public interface Studies extends EObject {
 	 * @see #setPastCourses(EList)
 	 * @see course.CoursePackage#getStudies_PastCourses()
 	 * @model required="true" many="false" transient="true"
-	 * @generated
+	 * @generated NOT
 	 */
-	EList getPastCourses();
+	EList<Course> getPastCourses();
 
 	/**
 	 * Sets the value of the '{@link course.Studies#getPastCourses <em>Past Courses</em>}' attribute.
@@ -49,9 +49,9 @@ public interface Studies extends EObject {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Past Courses</em>' attribute.
 	 * @see #getPastCourses()
-	 * @generated
+	 * @generated NOT
 	 */
-	void setPastCourses(EList value);
+	void setPastCourses(EList<Course> value);
 
 	/**
 	 * Returns the value of the '<em><b>Student</b></em>' container reference.
@@ -129,9 +129,9 @@ public interface Studies extends EObject {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Exams</em>' attribute.
 	 * @see #getExams()
-	 * @generated
+	 * @generated NOT
 	 */
-	void setExams(EList value);
+	void setExams(EList<CourseInstance> value);
 
 	/**
 	 * Returns the value of the '<em><b>Credits</b></em>' attribute.

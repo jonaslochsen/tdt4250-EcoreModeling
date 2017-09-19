@@ -71,6 +71,7 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.TIMETABLE_ENTRY: return createTimetableEntry();
 			case CoursePackage.EMPLOYMENT: return createEmployment();
 			case CoursePackage.STUDIES: return createStudies();
+			case CoursePackage.COURSE_POINT_REDUCTION: return createCoursePointReduction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -256,6 +257,16 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	public Studies createStudies() {
 		StudiesImpl studies = new StudiesImpl();
 		return studies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoursePointReduction createCoursePointReduction() {
+		CoursePointReductionImpl coursePointReduction = new CoursePointReductionImpl();
+		return coursePointReduction;
 	}
 
 	/**

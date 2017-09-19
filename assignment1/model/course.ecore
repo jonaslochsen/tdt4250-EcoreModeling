@@ -32,8 +32,8 @@
         eType="#//Department" eOpposite="#//Department/courses"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preRequisities" upperBound="-1"
         eType="#//Course"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependentCourses" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="courseReductions" upperBound="-1"
+        eType="#//CoursePointReduction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CourseInstance">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -70,6 +70,9 @@
         containment="true" eOpposite="#//Studies/student"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="evaluationMustSumToOne"/>
+    </eAnnotations>
     <eOperations name="completeExam">
       <eParameters name="student" lowerBound="1" eType="#//Studies"/>
     </eOperations>
@@ -161,5 +164,11 @@
   <eClassifiers xsi:type="ecore:EEnum" name="semesterType">
     <eLiterals name="Spring"/>
     <eLiterals name="Fall" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CoursePointReduction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reduction" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="course" lowerBound="1"
+        eType="#//Course"/>
   </eClassifiers>
 </ecore:EPackage>
