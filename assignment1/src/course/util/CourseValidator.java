@@ -5,12 +5,15 @@ package course.util;
 import course.*;
 
 import java.util.Map;
+
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EPackage;
-
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 /**
@@ -191,14 +194,30 @@ public class CourseValidator extends EObjectValidator {
 		EList<TimetableEntry> timeTableEntries = courseInstance.getTimeTable().getTimetableEntry();
 		
 		for (TimetableEntry timetableEntry : timeTableEntries) {
+			System.out.println(timetableEntry);
 			String lecture = timetableEntry.getTime();
 			String[] splitLectureString = lecture.split("-");
 			scheduledHours += Integer.parseInt(splitLectureString[1].substring(0, 2)) - Integer.parseInt(splitLectureString[0].substring(0, 2));
 		}
-		
-		if (totalCourseHours == scheduledHours)
-			return true;
-		return false;
+		System.out.println("Hours it should be scheduled: " + totalCourseHours + " Hours scheduled: " + scheduledHours);
+		if (totalCourseHours != scheduledHours) {
+			if (diagnostics != null)
+		      {
+		        diagnostics.add(
+		          new BasicDiagnostic(
+		            Diagnostic.ERROR,
+		            DIAGNOSTIC_SOURCE,
+		            0,
+		            EcorePlugin.INSTANCE.getString(
+		              "_UI_GenericConstraint_diagnostic",
+		              new Object[] {
+		                "scheduledHours", 
+		                getObjectLabel(courseInstance, context) }),
+		            new Object[] { courseInstance }));
+		      }
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -245,7 +264,24 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateEvaluation_evaluationMustSumToOne(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return (evaluation.getExam() + evaluation.getProject() + evaluation.getAssigments()) == 1;
+		if ((evaluation.getExam() + evaluation.getProject() + evaluation.getAssigments()) != 100) {
+			if (diagnostics != null)
+		      {
+		        diagnostics.add(
+		          new BasicDiagnostic(
+		            Diagnostic.ERROR,
+		            DIAGNOSTIC_SOURCE,
+		            0,
+		            EcorePlugin.INSTANCE.getString(
+		              "_UI_GenericConstraint_diagnostic",
+		              new Object[] {
+		                "evaluationMustSumToOne", 
+		                getObjectLabel(evaluation, context) }),
+		            new Object[] { evaluation }));
+		      }
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -323,6 +359,20 @@ public class CourseValidator extends EObjectValidator {
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
 		if (employment.getEmployment().contains(TypeOfEmployment.TA) && employment.getEmployment().contains(TypeOfEmployment.STUDENT)) {
+			if (diagnostics != null)
+		      {
+		        diagnostics.add(
+		          new BasicDiagnostic(
+		            Diagnostic.ERROR,
+		            DIAGNOSTIC_SOURCE,
+		            0,
+		            EcorePlugin.INSTANCE.getString(
+		              "_UI_GenericConstraint_diagnostic",
+		              new Object[] {
+		                "evaluationMustSumToOne", 
+		                getObjectLabel(employment, context) }),
+		            new Object[] { employment }));
+		      }
 			return false;
 		}
 		return true;
