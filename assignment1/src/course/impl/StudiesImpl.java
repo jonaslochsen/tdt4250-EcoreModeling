@@ -239,6 +239,10 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * @generated NOT
 	 */
 	public void signUpForExam(CourseInstance courseInstance) {
+		if (this.exams == null) {
+			this.exams = new BasicEList<CourseInstance>();
+		}
+		
 		if (!exams.contains(courseInstance)) {
 			exams.add(courseInstance);
 		}else {

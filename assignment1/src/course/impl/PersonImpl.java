@@ -11,7 +11,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -303,6 +303,15 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+	
+	// Helper function for test cases.
+	public void addEmployment(Employment e) {
+		if (employment == null) {
+			employment = new BasicEList<Employment>();
+		}
+		
+		employment.add(e);
 	}
 
 } //PersonImpl

@@ -338,5 +338,7 @@ public class EmploymentImpl extends MinimalEObjectImpl.Container implements Empl
 		result.append(')');
 		return result.toString();
 	}
+	
+	// Helper 
 
 } //EmploymentImpl

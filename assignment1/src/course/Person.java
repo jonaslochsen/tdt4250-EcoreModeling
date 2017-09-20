@@ -96,5 +96,7 @@ public interface Person extends EObject {
 	 * @generated
 	 */
 	void setStudies(Studies value);
+	
+	void addEmployment(Employment e);
 
 } // Person

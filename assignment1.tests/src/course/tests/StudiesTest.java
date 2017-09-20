@@ -2,7 +2,15 @@
  */
 package course.tests;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import course.Course;
 import course.CourseFactory;
+import course.CourseInstance;
+import course.Employment;
+import course.Organisation;
+import course.Person;
 import course.Studies;
 
 import junit.framework.TestCase;
@@ -104,12 +112,26 @@ public class StudiesTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see course.Studies#getCurrentCourses()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testGetCurrentCourses() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		Person testPerson = CourseFactory.eINSTANCE.createPerson();
+		Employment testEmployment = CourseFactory.eINSTANCE.createEmployment();
+		Organisation testOrganisation = CourseFactory.eINSTANCE.createOrganisation();
+		CourseInstance testInstance = CourseFactory.eINSTANCE.createCourseInstance();
+		Course testCourse = CourseFactory.eINSTANCE.createCourse();
+		
+		testEmployment.setOrganisation(testOrganisation);
+		testInstance.setCourse(testCourse);
+		testOrganisation.setCourseInstance(testInstance);
+		testEmployment.setEmployee(testPerson);
+		
+		EList<CourseInstance> testInstances = new BasicEList<CourseInstance>();
+		
+		getFixture().setStudent(testPerson);
+		
+		assertEquals(testInstances, getFixture().getCurrentCourses());
+		
 	}
 
 	/**
@@ -117,38 +139,54 @@ public class StudiesTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see course.Studies#setCurrentCourses(org.eclipse.emf.common.util.EList)
-	 * @generated
+	 * @generated NOT
 	 */
-	public void testSetCurrentCourses() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+	public void testSetCurrentCourses() {}
 
 	/**
 	 * Tests the '{@link course.Studies#signUpForExam(course.CourseInstance) <em>Sign Up For Exam</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see course.Studies#signUpForExam(course.CourseInstance)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testSignUpForExam__CourseInstance() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+		CourseInstance testInstance = CourseFactory.eINSTANCE.createCourseInstance();
+		getFixture().signUpForExam(testInstance);
+		
+		assertTrue(getFixture().getExams().contains(testInstance));
+		}
 
 	/**
 	 * Tests the '{@link course.Studies#signOffFromExam(course.CourseInstance) <em>Sign Off From Exam</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see course.Studies#signOffFromExam(course.CourseInstance)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testSignOffFromExam__CourseInstance() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		Person testPerson = CourseFactory.eINSTANCE.createPerson();
+		Employment testEmployment = CourseFactory.eINSTANCE.createEmployment();
+		Organisation testOrganisation = CourseFactory.eINSTANCE.createOrganisation();
+		CourseInstance testInstance = CourseFactory.eINSTANCE.createCourseInstance();
+		Course testCourse = CourseFactory.eINSTANCE.createCourse();
+		
+		testEmployment.setOrganisation(testOrganisation);
+		
+		testInstance.setCourse(testCourse);
+		testOrganisation.setCourseInstance(testInstance);
+		testEmployment.setEmployee(testPerson);
+		testPerson.addEmployment(testEmployment);
+		System.out.println(testPerson.getEmployment());
+		
+		getFixture().signUpForExam(testInstance);
+		
+		getFixture().signOffFromExam(testInstance);
+		
+		assertEquals(new BasicEList<CourseInstance>(), getFixture().getExams());
+		
+		assertTrue(!getFixture().getCurrentCourses().contains(testInstance));
+		
 	}
 
 } //StudiesTest
