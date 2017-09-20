@@ -165,27 +165,17 @@ public class StudiesTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testSignOffFromExam__CourseInstance() {
-		Person testPerson = CourseFactory.eINSTANCE.createPerson();
-		Employment testEmployment = CourseFactory.eINSTANCE.createEmployment();
-		Organisation testOrganisation = CourseFactory.eINSTANCE.createOrganisation();
 		CourseInstance testInstance = CourseFactory.eINSTANCE.createCourseInstance();
 		Course testCourse = CourseFactory.eINSTANCE.createCourse();
 		
-		testEmployment.setOrganisation(testOrganisation);
-		
 		testInstance.setCourse(testCourse);
-		testOrganisation.setCourseInstance(testInstance);
-		testEmployment.setEmployee(testPerson);
-		testPerson.addEmployment(testEmployment);
-		System.out.println(testPerson.getEmployment());
-		
-		getFixture().signUpForExam(testInstance);
-		
+		getFixture().addExam(testInstance);				
 		getFixture().signOffFromExam(testInstance);
+
+		assertTrue(getFixture().getExams().size() == 0);
+		assertTrue(!getFixture().getExams().contains(testInstance));
 		
-		assertEquals(new BasicEList<CourseInstance>(), getFixture().getExams());
-		
-		assertTrue(!getFixture().getCurrentCourses().contains(testInstance));
+
 		
 	}
 

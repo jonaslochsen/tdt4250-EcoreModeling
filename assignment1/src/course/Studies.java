@@ -121,7 +121,7 @@ public interface Studies extends EObject {
 	 * @model required="true" many="false" transient="true"
 	 * @generated
 	 */
-	EList getExams();
+	EList<CourseInstance> getExams();
 
 	/**
 	 * Sets the value of the '{@link course.Studies#getExams <em>Exams</em>}' attribute.
@@ -174,5 +174,8 @@ public interface Studies extends EObject {
 	 * @generated
 	 */
 	void signOffFromExam(CourseInstance courseInstance);
+	
+	//Helper method for test cases
+	void addExam(CourseInstance courseInstance);
 
 } // Studies

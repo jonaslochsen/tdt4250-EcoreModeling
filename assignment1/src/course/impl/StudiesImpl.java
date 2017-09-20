@@ -444,4 +444,12 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 		return result.toString();
 	}
 
+	//Helper method for test cases
+	@Override
+	public void addExam(CourseInstance courseInstance) {
+		exams = new BasicEList<CourseInstance>();
+		exams.add(courseInstance);
+		
+	}
+
 } //StudiesImpl
