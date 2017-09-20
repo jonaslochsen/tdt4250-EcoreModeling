@@ -253,7 +253,7 @@ public class CourseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(evaluation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(evaluation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(evaluation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateEvaluation_evaluationMustSumToOne(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvaluation_evaluationMustSumToOneHundred(evaluation, diagnostics, context);
 		return result;
 	}
 
@@ -263,7 +263,7 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateEvaluation_evaluationMustSumToOne(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateEvaluation_evaluationMustSumToOneHundred(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if ((evaluation.getExam() + evaluation.getProject() + evaluation.getAssigments()) != 100) {
 			if (diagnostics != null)
 		      {
@@ -275,7 +275,7 @@ public class CourseValidator extends EObjectValidator {
 		            EcorePlugin.INSTANCE.getString(
 		              "_UI_GenericConstraint_diagnostic",
 		              new Object[] {
-		                "evaluationMustSumToOne", 
+		                "evaluationMustSumToOneHundred", 
 		                getObjectLabel(evaluation, context) }),
 		            new Object[] { evaluation }));
 		      }
@@ -369,7 +369,7 @@ public class CourseValidator extends EObjectValidator {
 		            EcorePlugin.INSTANCE.getString(
 		              "_UI_GenericConstraint_diagnostic",
 		              new Object[] {
-		                "evaluationMustSumToOne", 
+		                "cannotBeStudentAndTAInSameCourse", 
 		                getObjectLabel(employment, context) }),
 		            new Object[] { employment }));
 		      }

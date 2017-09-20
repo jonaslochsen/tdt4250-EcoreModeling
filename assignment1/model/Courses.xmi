@@ -131,16 +131,6 @@
           code="MTDT"/>
     </departments>
   </faculties>
-  <faculties
-      name="of Engineering"
-      shortName="IV">
-    <departments
-        name="of Geoscience and Petroleum"
-        shortName="IGP">
-      <studyPrograms
-          code="MTPETR"/>
-    </departments>
-  </faculties>
   <people name="Hallvard Trætteberg"
       employment="//@faculties.0/@departments.0/@courses.0/@courseInstances.0/@organisation/@employees.0 //@faculties.0/@departments.0/@courses.1/@courseInstances.0/@organisation/@employees.0"/>
   <people name="Bendik Tiltnes"
