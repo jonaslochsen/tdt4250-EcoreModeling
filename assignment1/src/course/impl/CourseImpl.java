@@ -13,7 +13,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -360,6 +360,13 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			courseReductions = new EObjectContainmentEList<CoursePointReduction>(CoursePointReduction.class, this, CoursePackage.COURSE__COURSE_REDUCTIONS);
 		}
 		return courseReductions;
+	}
+	
+	public void addCourseReduction(CoursePointReduction e) {
+		if (this.courseReductions == null) {
+			this.courseReductions = new BasicEList<CoursePointReduction>();
+		}
+		this.courseReductions.add(e);
 	}
 
 	/**

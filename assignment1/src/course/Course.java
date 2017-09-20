@@ -228,5 +228,7 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	EList<CoursePointReduction> getCourseReductions();
+	
+	void addCourseReduction(CoursePointReduction e);
 
 } // Course

@@ -406,7 +406,7 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 		EList<CoursePointReduction> pointReductions = getCourseInstance().getCourse().getCourseReductions();
 		double reductions = 0.0;
 		for (CoursePointReduction coursePointReduction : pointReductions) {
-			if (pastCourses.contains(coursePointReduction)) {
+			if (pastCourses.contains(coursePointReduction.getCourse())) {
 				reductions += coursePointReduction.getReduction();
 			}
 		}

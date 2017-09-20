@@ -79,7 +79,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected EList<Course> pastCourses;
+	protected EList<Course> pastCourses = new BasicEList<Course>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,7 +115,7 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	 * @generated NOT
 	 */
 	public void setPastCourses(EList<Course> newPastCourses) {
-		EList oldPastCourses = pastCourses;
+		EList<Course> oldPastCourses = pastCourses;
 		pastCourses = newPastCourses;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDIES__PAST_COURSES, oldPastCourses, pastCourses));
