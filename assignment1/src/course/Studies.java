@@ -119,7 +119,7 @@ public interface Studies extends EObject {
 	 * @see #setExams(EList)
 	 * @see course.CoursePackage#getStudies_Exams()
 	 * @model required="true" many="false" transient="true"
-	 * @generated
+	 * @generated NOT
 	 */
 	EList<CourseInstance> getExams();
 
