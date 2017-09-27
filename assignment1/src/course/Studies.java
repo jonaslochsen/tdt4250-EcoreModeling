@@ -98,16 +98,6 @@ public interface Studies extends EObject {
 	EList<CourseInstance> getCurrentCourses();
 
 	/**
-	 * Sets the value of the '{@link course.Studies#getCurrentCourses <em>Current Courses</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Courses</em>' attribute.
-	 * @see #getCurrentCourses()
-	 * @generated NOT
-	 */
-	void setCurrentCourses(EList<CourseInstance> value);
-
-	/**
 	 * Returns the value of the '<em><b>Exams</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

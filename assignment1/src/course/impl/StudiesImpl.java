@@ -180,16 +180,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 		return currentCourses;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public void setCurrentCourses(EList<CourseInstance> newCurrentCourses) {
-		// TODO: implement this method to set the 'Current Courses' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -341,9 +331,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 			case CoursePackage.STUDIES__STUDENT:
 				setStudent((Person)newValue);
 				return;
-			case CoursePackage.STUDIES__CURRENT_COURSES:
-				setCurrentCourses((EList)newValue);
-				return;
 			case CoursePackage.STUDIES__EXAMS:
 				setExams((EList)newValue);
 				return;
@@ -367,9 +354,6 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 		switch (featureID) {
 			case CoursePackage.STUDIES__STUDENT:
 				setStudent((Person)null);
-				return;
-			case CoursePackage.STUDIES__CURRENT_COURSES:
-				setCurrentCourses((EList)null);
 				return;
 			case CoursePackage.STUDIES__EXAMS:
 				setExams((EList)null);
@@ -447,9 +431,10 @@ public class StudiesImpl extends MinimalEObjectImpl.Container implements Studies
 	//Helper method for test cases
 	@Override
 	public void addExam(CourseInstance courseInstance) {
-		exams = new BasicEList<CourseInstance>();
+		if (exams == null) {
+			exams = new BasicEList<CourseInstance>();
+		}
 		exams.add(courseInstance);
-		
 	}
 
 } //StudiesImpl

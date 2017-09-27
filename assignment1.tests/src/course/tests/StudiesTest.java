@@ -166,17 +166,19 @@ public class StudiesTest extends TestCase {
 	 */
 	public void testSignOffFromExam__CourseInstance() {
 		CourseInstance testInstance = CourseFactory.eINSTANCE.createCourseInstance();
+		CourseInstance testInstance2 = CourseFactory.eINSTANCE.createCourseInstance();
 		Course testCourse = CourseFactory.eINSTANCE.createCourse();
+		Course testCourse2 = CourseFactory.eINSTANCE.createCourse();
 		
 		testInstance.setCourse(testCourse);
-		getFixture().addExam(testInstance);				
+		testInstance2.setCourse(testCourse2);
+		getFixture().addExam(testInstance);
+		getFixture().addExam(testInstance2);
+		assertTrue(getFixture().getExams().contains(testInstance));
+		
 		getFixture().signOffFromExam(testInstance);
-
-		assertTrue(getFixture().getExams().size() == 0);
+		assertTrue(getFixture().getExams().size() == 1);
 		assertTrue(!getFixture().getExams().contains(testInstance));
-		
-
-		
 	}
 
 } //StudiesTest

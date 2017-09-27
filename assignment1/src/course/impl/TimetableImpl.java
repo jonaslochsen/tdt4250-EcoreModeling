@@ -11,7 +11,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -235,6 +235,15 @@ public class TimetableImpl extends MinimalEObjectImpl.Container implements Timet
 				return timetableEntry != null && !timetableEntry.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public void addTimetableEntry(TimetableEntry e) {
+		if (timetableEntry == null) {
+			timetableEntry = new BasicEList<TimetableEntry>();
+		}
+		timetableEntry.add(e);
+		
 	}
 
 } //TimetableImpl

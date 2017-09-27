@@ -67,5 +67,7 @@ public interface Timetable extends EObject {
 	 * @generated
 	 */
 	EList<TimetableEntry> getTimetableEntry();
+	
+	void addTimetableEntry(TimetableEntry e);
 
 } // Timetable
