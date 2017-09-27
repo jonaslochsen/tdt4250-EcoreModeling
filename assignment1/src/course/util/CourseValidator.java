@@ -7,6 +7,7 @@ import course.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -184,38 +185,48 @@ public class CourseValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateCourseInstance_scheduledHours(CourseInstance courseInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
 		int totalCourseHours = courseInstance.getCourseWork().getLabHours() + courseInstance.getCourseWork().getLectureHours();
-		
-		int scheduledHours = 0;
 		
 		EList<TimetableEntry> timeTableEntries = courseInstance.getTimeTable().getTimetableEntry();
 		
+		EList<StudyProgram> studyPrograms = new BasicEList<StudyProgram>();
+		
 		for (TimetableEntry timetableEntry : timeTableEntries) {
-			System.out.println(timetableEntry);
-			String lecture = timetableEntry.getTime();
-			String[] splitLectureString = lecture.split("-");
-			scheduledHours += Integer.parseInt(splitLectureString[1].substring(0, 2)) - Integer.parseInt(splitLectureString[0].substring(0, 2));
+			for (StudyProgram studyProgram : timetableEntry.getStudyProgram()) {
+				if (!studyPrograms.contains(studyProgram)) {
+					studyPrograms.add(studyProgram);
+				}
+			}
 		}
-		System.out.println("Hours it should be scheduled: " + totalCourseHours + " Hours scheduled: " + scheduledHours);
-		if (totalCourseHours != scheduledHours) {
-			if (diagnostics != null)
-		      {
-		        diagnostics.add(
-		          new BasicDiagnostic(
-		            Diagnostic.ERROR,
-		            DIAGNOSTIC_SOURCE,
-		            0,
-		            EcorePlugin.INSTANCE.getString(
-		              "_UI_GenericConstraint_diagnostic",
-		              new Object[] {
-		                "scheduledHours", 
-		                getObjectLabel(courseInstance, context) }),
-		            new Object[] { courseInstance }));
-		      }
-			return false;
+		
+		for (StudyProgram studyprogram : studyPrograms) {
+			int scheduledHours = 0;
+			
+			for (TimetableEntry timetableEntry : timeTableEntries) {
+				if (timetableEntry.getStudyProgram().contains(studyprogram)) {
+					String lecture = timetableEntry.getTime();
+					String[] splitLectureString = lecture.split("-");
+					scheduledHours += Integer.parseInt(splitLectureString[1].substring(0, 2)) - Integer.parseInt(splitLectureString[0].substring(0, 2));
+				}
+			}
+			System.out.println("Study Program: " + studyprogram.toString() + " Actual Hours: " + totalCourseHours + " Scheduled Hours: " + scheduledHours);
+			if (totalCourseHours != scheduledHours) {
+				if (diagnostics != null)
+			      {
+			        diagnostics.add(
+			          new BasicDiagnostic(
+			            Diagnostic.ERROR,
+			            DIAGNOSTIC_SOURCE,
+			            0,
+			            EcorePlugin.INSTANCE.getString(
+			              "_UI_GenericConstraint_diagnostic",
+			              new Object[] {
+			                "scheduledHours", 
+			                getObjectLabel(courseInstance, context) }),
+			            new Object[] { courseInstance }));
+			      }
+				return false;
+			}
 		}
 		return true;
 	}

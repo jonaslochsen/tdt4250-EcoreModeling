@@ -123,6 +123,8 @@ public interface TimetableEntry extends EObject {
 	 * @generated
 	 */
 	EList<StudyProgram> getStudyProgram();
+	
+	void addStudyProgram(StudyProgram e);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
