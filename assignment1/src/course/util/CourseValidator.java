@@ -253,36 +253,8 @@ public class CourseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(evaluation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(evaluation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(evaluation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateEvaluation_evaluationMustSumToOne(evaluation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvaluation_evaluationMustSumToOneHundred(evaluation, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the evaluationMustSumToOne constraint of '<em>Evaluation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEvaluation_evaluationMustSumToOne(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "evaluationMustSumToOne", getObjectLabel(evaluation, context) },
-						 new Object[] { evaluation },
-						 context));
-			}
-			return false;
-		}
-		return true;
 	}
 
 	/**

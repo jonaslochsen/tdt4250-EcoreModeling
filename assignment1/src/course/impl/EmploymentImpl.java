@@ -339,6 +339,10 @@ public class EmploymentImpl extends MinimalEObjectImpl.Container implements Empl
 		return result.toString();
 	}
 	
-	// Helper 
+	// Validation test helper method
+	public void setEmployment() {
+		
+	}
+	
 
 } //EmploymentImpl
