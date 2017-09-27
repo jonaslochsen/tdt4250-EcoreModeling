@@ -11,7 +11,7 @@ import course.TypeOfInstruction;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -364,6 +364,14 @@ public class TimetableEntryImpl extends MinimalEObjectImpl.Container implements 
 		result.append(type);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public void addStudyProgram(StudyProgram e) {
+		if (studyProgram == null) {
+			studyProgram = new BasicEList<StudyProgram>();
+		}
+		studyProgram.add(e);
 	}
 
 } //TimetableEntryImpl
